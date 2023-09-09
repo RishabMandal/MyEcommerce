@@ -48,7 +48,7 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    handleSession();
+    // handleSession();
   }, []);
 
   // const { showNavModal, setShowNavModal } = useContext(GlobalContext);
@@ -57,6 +57,7 @@ const Navbar = () => {
       <nav className="bg-white sticky w-full z-20 top-0 left-0 border-b border-gray-200">
         <div className="flex flex-row px-4 py-5 justify-between items-center">
           <div className="text-2xl font-bold">PowerBilla Ecommerce</div>
+          <div className="cursor-pointer" onClick={() => handleSession()}>Click to check session</div>
           <div></div>
           <div className="flex">
             <div className="text-xl font-semibold">User: {Name}</div>

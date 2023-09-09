@@ -1,21 +1,55 @@
 "use client";
 
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const page = () => {
   const [products, setProducts] = useState();
 
   useEffect(() => {
     axios
-      .get("/api/MainPage")
+      .get("/api/AvailableProducts")
       .then((res) => {
         setProducts(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  function handleSubmit() {}
+  // Input refs
+  const id = useRef();
+  const title = useRef();
+  const price = useRef();
+  const description = useRef();
+  const category = useRef();
+  const imageUrl = useRef();
+  const ratingRate = useRef();
+  const ratingCount = useRef();
+
+  const handleSubmit = () => {
+    axios
+      .post("/api/AvailableProducts", {
+        operation: "add",
+        id: id.current.value,
+        title: title.current.value,
+        price: price.current.value,
+        description: description.current.value,
+        category: category.current.value,
+        image: imageUrl.current.value,
+        rating: {
+          rate: ratingRate.current.value,
+          count: ratingCount.current.value,
+        },
+      })
+      .then((response) => alert(response))
+      .catch((error) => alert(error));
+  };
+
+  const handleDelete = (id) => {
+    axios
+      .post("/api/AvailableProducts", { operation: "delete", id: id })
+      .then((response) => alert(response))
+      .catch((error) => alert(error));
+  };
 
   return (
     <div>
@@ -35,63 +69,73 @@ const page = () => {
                     className="max-h-[50vh] w-full"
                   />
                   <div>Rs {product.price * 100}.00</div>
+                  <div
+                    onClick={() => handleDelete(product.id)}
+                    className="bg-red-600 text-center text-white rounded-lg p-3 mx-2"
+                  >
+                    Delete this product
+                  </div>
                 </div>
               );
             })}
           </div>
         </div>
-        <div className="">
+        <div className="fixed top-0 right-0 w-[50vw] mt-32">
           <div className="text-5xl my-10">Add new product</div>
+          <div className="text-2xl my-10">Enter product details</div>
           <input
             type="number"
             placeholder="Enter ID"
-            // ref={}
+            ref={id}
             className="border-4 rounded-lg p-3 m-3 text-xl"
           />
           <input
             type="text"
             placeholder="Enter Title"
-            // ref={}
+            ref={title}
             className="border-4 rounded-lg p-3 m-3 text-xl"
           />
           <input
             type="number"
             placeholder="Enter Price"
-            // ref={}
+            ref={price}
             className="border-4 rounded-lg p-3 m-3 text-xl"
           />
           <input
             type="text"
             placeholder="Enter Description"
-            // ref={}
+            ref={description}
             className="border-4 rounded-lg p-3 m-3 text-xl"
           />
           <input
             type="text"
             placeholder="Enter Category"
-            // ref={}
+            ref={category}
             className="border-4 rounded-lg p-3 m-3 text-xl"
           />
           <input
             type="text"
-            placeholder="Enter Image"
-            // ref={}
+            placeholder="Enter Image URL"
+            ref={imageUrl}
             className="border-4 rounded-lg p-3 m-3 text-xl"
           />
           <input
             type="number"
             placeholder="Enter Rating Rate"
-            // ref={}
+            ref={ratingRate}
             className="border-4 rounded-lg p-3 m-3 text-xl"
           />
           <input
             type="number"
             placeholder="Enter Rating Count"
-            // ref={}
+            ref={ratingCount}
             className="border-4 rounded-lg p-3 m-3 text-xl"
           />
-          <div className="cursor-pointer bg-red-600 text-white rounded-lg p-3 mx-2">
-            Submit
+          <div
+            onClick={handleSubmit}
+            className="text-center font-bold text-2xl cursor-pointer bg-red-600 text-white rounded-lg p-3 m-2"
+          >
+            Add this product
           </div>
         </div>
       </div>

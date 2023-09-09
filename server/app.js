@@ -3,7 +3,13 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const session = require("express-session");
 
+// My try
+const cookieParser = require('cookie-parser');
+
 const app = express();
+
+// My try
+app.use(cookieParser());
 
 // app.use("/static", express.static("static"));
 app.use(express.json());
@@ -16,13 +22,19 @@ app.use(
     proxy: true,
     resave: false,
     saveUninitialized: false,
-    username: "",
-    email: "",
-    loggedIn: false,
-    isAdmin: {
-      type: Boolean,
-      default: false,
+    cookie: {
+      secure: false, // Set to true for HTTPS
+      httpOnly: true,
+      path: "/",
+      maxAge: 3600000, // Session duration in milliseconds (1 hour in this example)
     },
+    // username: "",
+    // email: "",
+    // loggedIn: false,
+    // isAdmin: {
+    //   type: Boolean,
+    //   default: false,
+    // },
   })
 );
 
@@ -75,37 +87,54 @@ app.post("/signup", (req, res) => {
   //   });
 });
 
-app.post("/login", (req, res) => {
-  var email = req.body.email;
-  var password = req.body.password;
+// app.post("/login", (req, res) => {
+//   var email = req.body.email;
+//   var password = req.body.password;
 
-  let view;
-  async function findAcc(email, password) {
-    view = await db
-      .collection("accounts")
-      .find({ $and: [{ email: `${email}` }, { password: `${password}` }] })
-      .toArray();
-    if (view.length > 0) {
-      req.session.username = view[0].name;
-      req.session.email = email;
-      req.session.loggedIn = true;
-      if (view[0].isAdmin == true) {
-        req.session.isAdmin = true;
-      }
-      //   res.status(200).render("index", { session: req.session });
-      res.send("valid Credentials!", { session: req.session });
-    } else res.send("Invalid Credentials!");
-  }
-  findAcc(email, password);
-});
+//   let view;
+//   async function findAcc(email, password) {
+//     view = await db
+//       .collection("accounts")
+//       .find({ $and: [{ email: `${email}` }, { password: `${password}` }] })
+//       .toArray();
+//     if (view.length > 0) {
+//       req.session.username = view[0].name;
+//       req.session.email = email;
+//       req.session.loggedIn = true;
+//       if (view[0].isAdmin == true) {
+//         req.session.isAdmin = true;
+//       }
+//       //   res.status(200).render("index", { session: req.session });
+//       res.send("valid Credentials!", { session: req.session });
+//     } else res.send("Invalid Credentials!");
+//   }
+//   findAcc(email, password);
+// });
 
-app.get("/logout", (req, res) => {
-  req.session.username = "";
-  req.session.email = "";
-  req.session.loggedIn = false;
-  req.session.isAdmin = false;
-  res.status(200).redirect("index");
-});
+// app.get("/logout", (req, res) => {
+//   req.session.username = "";
+//   req.session.email = "";
+//   req.session.loggedIn = false;
+//   req.session.isAdmin = false;
+//   res.status(200).redirect("index");
+// });
+
+
+// My try
+app.get('/verify-cookie', (req, res) => {
+    const myCookie = req.cookies.myCookieName; // Replace with your cookie name
+  
+    if (myCookie) {
+      // The cookie exists, you can verify its value or perform actions based on it
+      res.send(`Cookie value: ${myCookie}`);
+    } else {
+      // The cookie doesn't exist or has an empty value
+      res.send('Cookie not found');
+    }
+  });
+//
+
+
 
 const port = 5000;
 app.listen(port, () => {
