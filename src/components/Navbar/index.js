@@ -78,7 +78,7 @@ const Navbar = () => {
               href="/components/Products/Cart"
               className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
             >
-              Cart {Cart && Cart.length}
+              Cart ({Cart && Cart.length})
             </Link>
             {isAdminView && (
               <>
