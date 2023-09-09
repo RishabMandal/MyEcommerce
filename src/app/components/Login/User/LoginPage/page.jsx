@@ -37,39 +37,43 @@ const page = () => {
   return (
     <div>
       <div>
-        <div className="flex flex-col items-center">
-          <div className="border p-5 m-5">
-            <Link
-              href="/components/Login/User/SignUpPage"
-              className="font-bold"
-            >
-              Go to Sign Up
-            </Link>
+        <section class="bg-gray-100 body-font">
+          <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            <div className="border p-5 m-5">
+              <Link
+                href="/components/Login/User/SignUpPage"
+                className="font-bold"
+              >
+                Go to Sign Up
+              </Link>
+            </div>
+            <div className="bg-white lg:w-[50rem] w-full p-10 rounded-2xl border shadow-xl">
+              <div className="text-5xl text-center font-bold py-10">Log In</div>
+              <div className="flex flex-col gap-6 mt-10">
+                <input
+                  type="email"
+                  ref={name}
+                  className="border-4 p-3 rounded-lg text-2xl"
+                  placeholder="Enter Email Address"
+                />
+                <input
+                  ref={password}
+                  type="password"
+                  className="border-4 p-3 rounded-lg text-2xl"
+                  placeholder="Enter Password"
+                />
+              </div>
+              <div
+                onClick={() => {
+                  handleSubmit();
+                }}
+                className="cursor-pointer text-3xl font-bold text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 mt-16"
+              >
+                Log In
+              </div>
+            </div>
           </div>
-          <div className="text-4xl">Login Page</div>
-          <div className="flex flex-col gap-3 mt-10">
-            <input
-              type="email"
-              ref={name}
-              className="border-4 p-3"
-              placeholder="Enter Email"
-            />
-            <input
-              ref={password}
-              type="text"
-              className="border-4 p-3"
-              placeholder="Enter Password"
-            />
-          </div>
-          <div
-            onClick={() => {
-              handleSubmit();
-            }}
-            className="cursor-pointer bg-red-600 text-white rounded-lg p-3 m-2"
-          >
-            Submit
-          </div>
-        </div>
+        </section>
       </div>
     </div>
   );

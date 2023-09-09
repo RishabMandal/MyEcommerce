@@ -49,9 +49,9 @@ const Navbar = () => {
     }
   }
 
-  useEffect(() => {
-    handleSession();
-  }, []);
+  // useEffect(() => {
+  //   handleSession();
+  // }, []);
 
   // const { showNavModal, setShowNavModal } = useContext(GlobalContext);
   const { Cart } = useContext(GlobalContext);

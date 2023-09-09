@@ -57,7 +57,7 @@ const page = () => {
                 <img
                   src={product.image}
                   alt=""
-                  className="max-h-[50vh] w-full object-contain"
+                  className="max-h-[50vh] w-full object-contain mt-5"
                 />
                 <div className="flex flex-wrap items-center justify-between gap-5 mt-5">
                   <div className="text-2xl font-bold">

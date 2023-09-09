@@ -10,9 +10,10 @@ const page = () => {
   const [name, setName] = useState();
   const [contact, setContact] = useState();
   const [isAdmin, setisAdmin] = useState(false);
+  const [orders, setOrders] = useState();
 
   useEffect(() => {
-    if (email)
+    if (email) {
       axios
         .post("/api/Account", { email: email })
         .then((response) => {
@@ -24,6 +25,14 @@ const page = () => {
           }
         })
         .catch((error) => console.error(error));
+      axios
+        .post("/api/Orders", { email: email })
+        .then((response) => {
+        //   console.log(response.data);
+          setOrders(response.data);
+        })
+        .catch((error) => console.error(error));
+    }
   }, []);
 
   return (
@@ -31,7 +40,31 @@ const page = () => {
       <div className="bg-gray-100 p-5 min-h-[70vh]">
         <div className="flex flex-row justify-between">
           <div className="bg-white rounded-xl border shadow-xl p-10">
-            <div className="text-3xl font-bold">Orders</div>
+            <div className="text-3xl font-bold mb-10">Orders</div>
+            {orders?.map((order) => {
+              return (
+                <div className="my-3">
+                  <div className="text-3xl font-bold">{order.title}</div>
+                  <div>{order.category}</div>
+                  <img
+                    src={order.image}
+                    alt=""
+                    className="max-h-[50vh] w-full object-contain mt-5"
+                  />
+                  <div className="flex flex-wrap items-center justify-between gap-5 mt-5">
+                    <div className="text-2xl font-bold">
+                      Rs {order.price}.00
+                    </div>
+                    <div
+                      // onClick={addToCart}
+                      className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
+                    >
+                      Add to cart
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
           <div className="bg-white rounded-xl border shadow-xl p-10">
             <div className="text-3xl font-bold mb-10">Account Details</div>
