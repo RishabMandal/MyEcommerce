@@ -55,7 +55,7 @@ const page = () => {
     <div>
       <div className="grid grid-cols-2">
         <div className="p-5">
-          <div className="text-5xl my-10">Available products</div>
+          <div className="text-5xl my-10 font-bold">Available Products</div>
           <div className="flex flex-wrap gap-10">
             {products?.map((product) => {
               return (
@@ -81,55 +81,55 @@ const page = () => {
           </div>
         </div>
         <div className="fixed top-0 right-0 w-[50vw] mt-32">
-          <div className="text-5xl my-10">Add new product</div>
-          <div className="text-2xl my-10">Enter product details</div>
+          <div className="text-5xl my-10 font-bold">Add new product</div>
+          <div className="text-2xl my-10 font-semibold">Enter product details</div>
           <input
             type="number"
             placeholder="Enter ID"
             ref={id}
-            className="border-4 rounded-lg p-3 m-3 text-xl"
+            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
           />
           <input
             type="text"
             placeholder="Enter Title"
             ref={title}
-            className="border-4 rounded-lg p-3 m-3 text-xl"
+            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
           />
           <input
             type="number"
             placeholder="Enter Price"
             ref={price}
-            className="border-4 rounded-lg p-3 m-3 text-xl"
+            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
           />
           <input
             type="text"
             placeholder="Enter Description"
             ref={description}
-            className="border-4 rounded-lg p-3 m-3 text-xl"
+            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
           />
           <input
             type="text"
             placeholder="Enter Category"
             ref={category}
-            className="border-4 rounded-lg p-3 m-3 text-xl"
+            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
           />
           <input
             type="text"
             placeholder="Enter Image URL"
             ref={imageUrl}
-            className="border-4 rounded-lg p-3 m-3 text-xl"
+            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
           />
           <input
             type="number"
             placeholder="Enter Rating Rate"
             ref={ratingRate}
-            className="border-4 rounded-lg p-3 m-3 text-xl"
+            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
           />
           <input
             type="number"
             placeholder="Enter Rating Count"
             ref={ratingCount}
-            className="border-4 rounded-lg p-3 m-3 text-xl"
+            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
           />
           <div
             onClick={handleSubmit}

@@ -63,7 +63,7 @@ const Navbar = () => {
           </div>
           <div>
             <Link href="/components/Products/MainPage" className={`font-semibold mx-5 text-xl hover:text-red-600 duration-200`}>Home</Link>
-            <Link href="/components/Products/MainPage" className={`font-semibold mx-5 text-xl hover:text-red-600 duration-200`}>Categories</Link>
+            <Link href="/components/Products/Categories" className={`font-semibold mx-5 text-xl hover:text-red-600 duration-200`}>Categories</Link>
             <Link href="/components/Products/MainPage" className={`font-semibold mx-5 text-xl hover:text-red-600 duration-200`}>Sale</Link>
           </div>
           <div className="flex">
