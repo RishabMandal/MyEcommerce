@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config({ path: "../../../.env" });
 
-console.log(process.env.MONGO_URL);
+// console.log(process.env.MONGO_URL);
 mongoose
   // .connect(`mongodb://${process.env.DB_URL}`)
   //   .connect(`mongodb://localhost:27017/myecommerce`)
