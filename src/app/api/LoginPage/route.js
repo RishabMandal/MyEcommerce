@@ -11,9 +11,7 @@ mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     // useUnifiedTopology: true,
-  })
-  //   .connect('mongodb+srv://Rishab829:Kanchan%401@expresstry.wqhmyb0.mongodb.net/myecommerce?retryWrites=true&w=majority', { useNewUrlParser: true})
-  .then(console.log("Connected to db"))
+  }).then(console.log("Connected to db"))
   .catch((error) => console.error("MongoDb " + error));
 
 //db
