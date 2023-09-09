@@ -40,14 +40,14 @@ const page = () => {
           count: ratingCount.current.value,
         },
       })
-      .then((response) => alert(response))
+      .then(() => alert("Product successfully added"))
       .catch((error) => alert(error));
   };
 
   const handleDelete = (id) => {
     axios
       .post("/api/AvailableProducts", { operation: "delete", id: id })
-      .then((response) => alert(response))
+      .then((response) => alert("Product successfully deleted"))
       .catch((error) => alert(error));
   };
 
@@ -66,7 +66,7 @@ const page = () => {
                   <img
                     src={product.image}
                     alt=""
-                    className="max-h-[50vh] w-full"
+                    className="max-h-[50vh] w-full object-contain"
                   />
                   <div>Rs {product.price * 100}.00</div>
                   <div

@@ -52,38 +52,45 @@ const Navbar = () => {
   }, []);
 
   // const { showNavModal, setShowNavModal } = useContext(GlobalContext);
+  const { Cart } = useContext(GlobalContext);
   return (
     <>
       <nav className="bg-white sticky w-full z-20 top-0 left-0 border-b border-gray-200">
         <div className="flex flex-row px-4 py-5 justify-between items-center">
-          <div className="text-2xl font-bold">PowerBilla Ecommerce</div>
-          <div className="cursor-pointer" onClick={() => handleSession()}>Click to check session</div>
-          <div></div>
+          <div className="text-4xl font-bold">PowerBilla Ecommerce</div>
+          <div className="cursor-pointer" onClick={() => handleSession()}>
+            Click to check session
+          </div>
+          <div>
+            <Link href="/components/Products/MainPage" className={`font-semibold mx-5 text-xl hover:text-red-600 duration-200`}>Home</Link>
+            <Link href="/components/Products/MainPage" className={`font-semibold mx-5 text-xl hover:text-red-600 duration-200`}>Categories</Link>
+            <Link href="/components/Products/MainPage" className={`font-semibold mx-5 text-xl hover:text-red-600 duration-200`}>Sale</Link>
+          </div>
           <div className="flex">
-            <div className="text-xl font-semibold">User: {Name}</div>
+            <div className="text-xl font-semibold">User: {Name || "Error"}</div>
             <Link
               href="/"
-              className="bg-red-600 text-white rounded-lg p-3 mx-2"
+              className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
             >
               Account
             </Link>
             <Link
               href="/components/Products/Cart"
-              className="bg-red-600 text-white rounded-lg p-3 mx-2"
+              className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
             >
-              Cart
+              Cart {Cart && Cart.length}
             </Link>
             {isAdminView && (
               <>
                 <Link
                   href="/components/AdminView"
-                  className="bg-red-600 text-white rounded-lg p-3 mx-2"
+                  className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
                 >
                   Admin View
                 </Link>
                 <Link
                   href="/"
-                  className="bg-red-600 text-white rounded-lg p-3 mx-2"
+                  className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
                 >
                   User View
                 </Link>
@@ -92,14 +99,14 @@ const Navbar = () => {
             {!isAuthUser ? (
               <Link
                 href="/components/Login"
-                className="bg-red-600 text-white rounded-lg p-3 mx-2"
+                className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
               >
                 Login
               </Link>
             ) : (
               <Link
                 href="/"
-                className="bg-red-600 text-white rounded-lg p-3 mx-2"
+                className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
               >
                 Logout
               </Link>
