@@ -1,11 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 const mongoose = require("mongoose");
-// const dotenv = require("dotenv");
-// dotenv.config({ path: "../.env" });
+const dotenv = require("dotenv");
+dotenv.config({ path: "../../../.env" });
 
+mongoose.set("strictQuery", true);
+// console.log(process.env.MONGO_URL);
 mongoose
-  //   .connect(`mongodb://${process.env.DB_URL}`)
-  .connect(`mongodb://localhost:27017/myecommerce`)
+  // .connect(`mongodb://${process.env.DB_URL}`)
+  //   .connect(`mongodb://localhost:27017/myecommerce`)
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    // useUnifiedTopology: true,
+  })
+  //   .connect('mongodb+srv://Rishab829:Kanchan%401@expresstry.wqhmyb0.mongodb.net/myecommerce?retryWrites=true&w=majority', { useNewUrlParser: true})
   .then(console.log("Connected to db"))
   .catch((error) => console.error("MongoDb " + error));
 

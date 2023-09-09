@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 const mongoose = require("mongoose");
-// const dotenv = require("dotenv");
-// dotenv.config({ path: "../.env" });
+const dotenv = require("dotenv");
+dotenv.config({ path: "../../../.env" });
 
 mongoose
-  //   .connect(`mongodb://${process.env.DB_URL}`)
-  .connect(`mongodb://localhost:27017/myecommerce`)
+  // .connect(`mongodb://${process.env.DB_URL}`)
+  //   .connect(`mongodb://localhost:27017/myecommerce`)
+  .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(console.log("Connected to db"))
   .catch((error) => console.error("MongoDb " + error));
 
