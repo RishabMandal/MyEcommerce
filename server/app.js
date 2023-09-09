@@ -1,10 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const session = require("express-session");
 
 // My try
-const cookieParser = require('cookie-parser');
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -12,20 +13,26 @@ const app = express();
 app.use(cookieParser());
 
 // app.use("/static", express.static("static"));
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://localhost:5000"],
+    methods: ["GET", "HEAD", "POST"],
+    credentials: true,
+  })
+);
+app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-// app.use("/images", express.static(path.join(__dirname + "/images")));
 app.use(
   session({
     secret: "thisisasecretkey",
-    proxy: true,
+    // proxy: true,
     resave: false,
     saveUninitialized: false,
     cookie: {
       secure: false, // Set to true for HTTPS
-      httpOnly: true,
-      path: "/",
+      // httpOnly: true,
+      // path: "/",
       maxAge: 3600000, // Session duration in milliseconds (1 hour in this example)
     },
     // username: "",
@@ -48,7 +55,7 @@ db.once("open", function () {
 });
 
 app.get("/test", (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
   res.send(req.session);
 });
 
@@ -70,8 +77,8 @@ app.post("/signup", (req, res) => {
     req.session.isAdmin = false;
     req.body.isAdmin = false;
   }
-  console.log(req.body);
-  console.log(req.session);
+  // console.log(req.body);
+  // console.log(req.session);
   res.send(req.session);
 
   //   var userData = new Account(req.body);
@@ -119,22 +126,19 @@ app.post("/signup", (req, res) => {
 //   res.status(200).redirect("index");
 // });
 
-
 // My try
-app.get('/verify-cookie', (req, res) => {
-    const myCookie = req.cookies.myCookieName; // Replace with your cookie name
-  
-    if (myCookie) {
-      // The cookie exists, you can verify its value or perform actions based on it
-      res.send(`Cookie value: ${myCookie}`);
-    } else {
-      // The cookie doesn't exist or has an empty value
-      res.send('Cookie not found');
-    }
-  });
+app.get("/verify-cookie", (req, res) => {
+  const myCookie = req.cookies.myCookieName; // Replace with your cookie name
+
+  if (myCookie) {
+    // The cookie exists, you can verify its value or perform actions based on it
+    res.send(`Cookie value: ${myCookie}`);
+  } else {
+    // The cookie doesn't exist or has an empty value
+    res.send("Cookie not found");
+  }
+});
 //
-
-
 
 const port = 5000;
 app.listen(port, () => {
