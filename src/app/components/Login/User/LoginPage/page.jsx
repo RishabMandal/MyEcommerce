@@ -26,7 +26,9 @@ const page = () => {
             email: name.current.value,
             password: password.current.value,
           },
-          { withCredentials: true }
+          {
+            withCredentials: true,
+          }
         )
         .then((response) => {
           console.log(response.data);

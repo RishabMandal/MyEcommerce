@@ -4,38 +4,61 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "../../../.env" });
 
 mongoose.set("strictQuery", true);
-// console.log(process.env.MONGO_URL);
-mongoose
-  // .connect(`mongodb://${process.env.DB_URL}`)
-  //   .connect(`mongodb://localhost:27017/myecommerce`)
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    // useUnifiedTopology: true,
-  }).then(console.log("Connected to db"))
-  .catch((error) => console.error("MongoDb " + error));
+// mongoose
+//   // .connect(`mongodb://${process.env.DB_URL}`)
+//   //   .connect(`mongodb://localhost:27017/myecommerce`)
+//   .connect(process.env.MONGO_URL, {
+//     useNewUrlParser: true,
+//   })
+//   .then(console.log("Connected to db"))
+//   .catch((error) => console.error("MongoDb " + error));
+let isDatabaseConnected = false;
+async function connectToDatabase() {
+  try {
+    await mongoose.connect(`mongodb://localhost:27017/myecommerce`, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    // await mongoose.connect(process.env.MONGO_URL, {
+    //   useNewUrlParser: true,
+    //   useUnifiedTopology: true,
+    // });
+    console.log("Connected to MongoDB");
+    isDatabaseConnected = true; // Set the flag to true when the connection is successful
+  } catch (error) {
+    console.error("MongoDB Connection Error:", error);
+  }
+}
+
+connectToDatabase();
 
 //db
 let db = mongoose.connection;
 
 // export async function GET(req) {
 //   try {
-//     console.log(req);
-//     console.log(req.body);
+//     const { email, password } = await req.json();
 //     const data = await db
-//       .collection("availableproducts")
-//       .find({ id: req.body.id });
-//     console.log(data);
+//       .collection("users")
+//       .find({ email: email, password: password })
+//       .toArray();
+//     console.log("Found data:", data);
 //     return NextResponse.json(data);
 //   } catch (error) {
 //     console.log(error);
-//     return NextResponse.json({ error: "Internal server error" });
+//     return NextResponse.json({
+//       error: "Internal server error get error",
+//       message: error.message,
+//     });
 //   }
 // }
+
 export async function POST(req) {
   try {
+    if (!isDatabaseConnected) {
+      throw new Error("Database not connected");
+    }
     const { email, password } = await req.json();
-    // const numericId = parseInt(id);
-    // console.log("Extracted id:", id);
     const data = await db
       .collection("users")
       .find({ email: email, password: password })
@@ -44,67 +67,10 @@ export async function POST(req) {
     return NextResponse.json(data);
   } catch (error) {
     console.log(error);
-    return NextResponse.json({ error: "Internal server error" });
+    return NextResponse.json({
+      error: "Internal server error",
+      err: error,
+      message: error.message,
+    });
   }
 }
-
-// export async function POST(req) {
-//   try {
-//     const {
-//       operation,
-//       id,
-//       title,
-//       price,
-//       description,
-//       category,
-//       image,
-//       rating,
-//     } = await req.json();
-//     console.log(
-//       operation,
-//       id,
-//       title,
-//       price,
-//       description,
-//       category,
-//       image,
-//       rating
-//     );
-//     if (operation === "add") {
-//       let myData = new usermodel({
-//         id,
-//         title,
-//         price,
-//         description,
-//         category,
-//         image,
-//         rating,
-//       });
-//       db.collection("availableproducts")
-//         .insertOne(myData)
-//         .then(() => {
-//           return NextResponse.json({ message: "Success" });
-//         })
-//         .catch((error) => {
-//           console.log("not done");
-//           return NextResponse.json({ error: error });
-//         });
-//       return NextResponse.json({ message: "Hello" });
-//     } else if (operation === "delete") {
-//       console.log("delete operation started");
-//       db.collection("availableproducts")
-//         .deleteOne({ id: id })
-//         .then(() => {
-//           return NextResponse.json({ message: "Success" });
-//         })
-//         .catch((error) => {
-//           console.log("not done");
-//           return NextResponse.json({ error: error });
-//         });
-//       return NextResponse.json({ message: "Hello" });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     return NextResponse.json({ error: "Internal server error" });
-//   }
-// }
