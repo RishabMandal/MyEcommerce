@@ -31,7 +31,7 @@ const page = () => {
             onClick={() => setCategories("men's clothing")}
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
-              <img src="" alt="Category Image" />
+              {/* <img src="" alt="Category Image" /> */}
               <div className="text-3xl font-bold">Men's Clothing</div>
             </div>
           </div>
@@ -40,7 +40,7 @@ const page = () => {
             onClick={() => setCategories("women's clothing")}
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
-              <img src="" alt="Category Image" />
+              {/* <img src="" alt="Category Image" /> */}
               <div className="text-3xl font-bold">Women's Clothing</div>
             </div>
           </div>
@@ -49,7 +49,7 @@ const page = () => {
             onClick={() => setCategories("smartphone")}
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
-              <img src="" alt="Category Image" />
+              {/* <img src="" alt="Category Image" /> */}
               <div className="text-3xl font-bold">SmartPhones</div>
             </div>
           </div>

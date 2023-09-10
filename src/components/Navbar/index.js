@@ -5,12 +5,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@/context";
 import Link from "next/link";
 import axios from "axios";
+import AdminModal from "../AdminModal.jsx";
 
 const Navbar = () => {
   // const isAuthUser = false;
   // const [isAuthUser, setIsAuthUser] = useState(false);
   const { isAuthUser, setIsAuthUser } = useContext(GlobalContext);
-  const [isAdminView, setIsAdminView] = useState(false);
+  // const [isAdminView, setIsAdminView] = useState(false);
+  const [isAdminView, setIsAdminView] = useState(true);
   // const isAdminView = false;
   const [Name, setName] = useState();
   const user = {
@@ -55,6 +57,9 @@ const Navbar = () => {
 
   // const { showNavModal, setShowNavModal } = useContext(GlobalContext);
   const { Cart } = useContext(GlobalContext);
+
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <>
       <nav className="bg-[#121212] text-white sticky w-full z-20 top-0 left-0">
@@ -101,12 +106,19 @@ const Navbar = () => {
             </Link>
             {isAdminView && (
               <>
-                <Link
+                {/* <Link
                   href="/components/AdminView"
+                  onClick={() => setOpenModal(!openModal)}
                   className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
                 >
                   Admin View
-                </Link>
+                </Link> */}
+                <button
+                  onClick={() => setOpenModal(!openModal)}
+                  className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
+                >
+                  Admin View
+                </button>
                 <Link
                   href="/"
                   className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
@@ -132,6 +144,7 @@ const Navbar = () => {
             )}
           </div>
         </div>
+        <AdminModal open={openModal} setOpen={setOpenModal} />
       </nav>
     </>
   );

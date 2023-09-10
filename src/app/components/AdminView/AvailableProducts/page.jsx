@@ -79,7 +79,7 @@ const page = () => {
                     </div>
                     <div
                       onClick={() => handleDelete(product.id)}
-                      className="bg-red-600 text-center font-bold text-white rounded-lg p-3 mx-2"
+                      className="bg-red-600 duration-200 hover:bg-red-700 text-center font-bold text-white rounded-lg p-3 mx-2"
                     >
                       Delete this product
                     </div>
@@ -144,7 +144,7 @@ const page = () => {
           />
           <div
             onClick={handleSubmit}
-            className="text-center font-bold text-2xl cursor-pointer bg-red-600 text-white rounded-lg p-3 m-2"
+            className="text-center font-bold text-2xl cursor-pointer bg-red-600 duration-200 hover:bg-red-700 text-white rounded-lg p-3 m-2"
           >
             Add this product
           </div>
