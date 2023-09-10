@@ -29,8 +29,22 @@ const page = () => {
               ever. Unleash the beast.
             </div>
             <div className="flex flex-row gap-5">
-              <div className="cursor-pointer border-2 border-white rounded-xl p-4 text-xl font-bold">Read More</div>
-              <div className="cursor-pointer rounded-xl p-4 text-xl font-bold bg-white text-black">Coming Soon</div>
+              <div
+                onClick={() =>
+                  window.location.replace("https://www.apple.com/in/")
+                }
+                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-xl font-bold"
+              >
+                Read More
+              </div>
+              <div
+                onClick={() =>
+                  window.location.replace("https://www.apple.com/in/")
+                }
+                className="cursor-pointer rounded-xl p-4 text-xl font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
+              >
+                Coming Soon
+              </div>
             </div>
           </div>
           <img
