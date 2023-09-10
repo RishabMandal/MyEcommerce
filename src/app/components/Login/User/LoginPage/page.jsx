@@ -20,10 +20,14 @@ const page = () => {
     // console.log(Name, Password);
     if (name.current.value && password.current.value) {
       axios
-        .post("/api/LoginPage", {
-          email: name.current.value,
-          password: password.current.value,
-        })
+        .post(
+          "/api/LoginPage",
+          {
+            email: name.current.value,
+            password: password.current.value,
+          },
+          { withCredentials: true }
+        )
         .then((response) => {
           console.log(response.data);
           if (response.data && response.data.length == 1) {
@@ -40,7 +44,7 @@ const page = () => {
         <section class="bg-gray-100 body-font">
           <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
             <div className="border p-5 m-5">
-              <div>{process.env.MONGO_URL}</div>
+              {/* <div>{process.env.MONGO_URL}</div> */}
               <Link
                 href="/components/Login/User/SignUpPage"
                 className="font-bold"

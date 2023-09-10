@@ -30,7 +30,7 @@ export async function POST(req) {
         .find({ email: email })
         .toArray();
     }
-    // console.log("Found data:", data);
+    console.log("Found data:", data);
     return NextResponse.json(data);
   } catch (error) {
     // console.log(error);

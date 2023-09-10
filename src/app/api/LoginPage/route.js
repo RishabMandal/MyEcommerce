@@ -40,10 +40,10 @@ export async function POST(req) {
       .collection("users")
       .find({ email: email, password: password })
       .toArray();
-    // console.log("Found data:", data);
+    console.log("Found data:", data);
     return NextResponse.json(data);
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     return NextResponse.json({ error: "Internal server error" });
   }
 }
