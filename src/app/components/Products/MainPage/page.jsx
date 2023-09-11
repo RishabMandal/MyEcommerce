@@ -10,7 +10,8 @@ const page = () => {
   useEffect(() => {
     axios
       //   .get("https://fakestoreapi.com/products")
-      .get("/api/MainPage")
+      // .get("/api/MainPage")
+      .get("/MyEcommerce/api/MainPage")
       .then((res) => {
         // console.log(res);
         setProducts(res.data);
