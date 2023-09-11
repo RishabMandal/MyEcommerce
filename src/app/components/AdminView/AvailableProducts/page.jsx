@@ -1,5 +1,6 @@
 "use client";
 
+import { TextField } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -94,13 +95,82 @@ const page = () => {
           <div className="text-2xl my-10 font-semibold">
             Enter product details
           </div>
-          <input
+          {/* <input
             type="number"
             placeholder="Enter ID"
             ref={id}
             className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+          /> */}
+          <TextField
+            id="outlined-basic"
+            type="number"
+            inputRef={id}
+            label="Product ID"
+            variant="outlined"
+            // color="red"
+            className="border-4 rounded-lg m-3 text-xl bg-white"
           />
-          <input
+          <TextField
+            id="outlined-basic"
+            type="text"
+            inputRef={title}
+            label="Product Title"
+            variant="outlined"
+            // color="red"
+            className="border-4 rounded-lg m-3 text-xl bg-white"
+          />
+          <TextField
+            id="outlined-basic"
+            type="number"
+            inputRef={price}
+            label="Product Price"
+            variant="outlined"
+            // color="red"
+            className="border-4 rounded-lg m-3 text-xl bg-white"
+          />
+          <TextField
+            id="outlined-basic"
+            type="text"
+            inputRef={description}
+            label="Product Description"
+            variant="outlined"
+            // color="red"
+            className="border-4 rounded-lg m-3 text-xl bg-white"
+          />
+          <TextField
+            id="outlined-basic"
+            type="text"
+            inputRef={category}
+            label="Product Category"
+            variant="outlined"
+            // color="red"
+            className="border-4 rounded-lg m-3 text-xl bg-white"
+          />
+          <TextField
+            id="outlined-basic"
+            type="text"
+            inputRef={imageUrl}
+            label="Image URL"
+            variant="outlined"
+            className="border-4 rounded-lg m-3 text-xl bg-white"
+          />
+          <TextField
+            id="outlined-basic"
+            type="number"
+            inputRef={ratingRate}
+            label="Rating Rate"
+            variant="outlined"
+            className="border-4 rounded-lg m-3 text-xl bg-white"
+          />
+          <TextField
+            id="outlined-basic"
+            type="number"
+            inputRef={ratingCount}
+            label="Rating Count"
+            variant="outlined"
+            className="border-4 rounded-lg m-3 text-xl bg-white"
+          />
+          {/* <input
             type="text"
             placeholder="Enter Title"
             ref={title}
@@ -141,7 +211,7 @@ const page = () => {
             placeholder="Enter Rating Count"
             ref={ratingCount}
             className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
-          />
+          /> */}
           <div
             onClick={handleSubmit}
             className="text-center font-bold text-2xl cursor-pointer bg-red-600 duration-200 hover:bg-red-700 text-white rounded-lg p-3 m-2"

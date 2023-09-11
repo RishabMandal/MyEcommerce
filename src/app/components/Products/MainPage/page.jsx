@@ -1,14 +1,17 @@
 "use client";
 
+import { GlobalContext } from "@/context";
 import axios from "axios";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 //
 // export async function getStaticProps() {
 //   try {
+//     // console.log("Hi");
 //     const res = await axios.get("/api/MainPage");
 //     const products = res.data;
+//     console.log(res);
 //     return {
 //       props: {
 //         products,
@@ -25,7 +28,7 @@ import React, { useEffect, useState } from "react";
 // }
 //
 
-
+// const page = ({ products }) => {
 const page = () => {
   const [products, setProducts] = useState();
 
@@ -39,6 +42,13 @@ const page = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const { Cart, setCart } = useContext(GlobalContext);
+  const addToCart = ({ product }) => {
+    if (Cart.length === 0) setCart([product]);
+    else setCart([...Cart, product]);
+    alert("Added to cart successfully");
+  };
 
   return (
     <div>
@@ -80,35 +90,42 @@ const page = () => {
           Available Products
         </div>
         <div className="flex flex-wrap gap-10 justify-center">
-          {products?.map((product) => {
-            return (
-              <Link
-                href={`/components/Products/ViewProductDetail/${product.id}`}
-                key={product.id}
-                className="border rounded-xl shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
-              >
-                {/* <div>{product.id}</div> */}
-                <div className="text-3xl font-bold">{product.title}</div>
-                <div>{product.category}</div>
-                <img
-                  src={product.image}
-                  alt=""
-                  className="max-h-[50vh] w-full object-contain mt-5"
-                />
-                <div className="flex flex-wrap items-center justify-between gap-5 mt-5">
-                  <div className="text-2xl font-bold">
-                    Rs {product.price}.00
-                  </div>
-                  <div
-                    // onClick={addToCart}
-                    className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
+          {products &&
+            products.length > 0 &&
+            products?.map((product) => {
+              return (
+                <div
+                  // href={`/components/Products/ViewProductDetail/${product.id}`}
+                  key={product.id}
+                  className="border rounded-xl shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
+                >
+                  {/* <div>{product.id}</div> */}
+                  <Link
+                    href={`/components/Products/ViewProductDetail/${product.id}`}
+                    className="cursor-pointer"
                   >
-                    Add to cart
+                    <div className="text-3xl font-bold">{product.title}</div>
+                    <div>{product.category}</div>
+                    <img
+                      src={product.image}
+                      alt=""
+                      className="max-h-[50vh] w-full object-contain mt-5"
+                    />
+                  </Link>
+                  <div className="flex flex-wrap items-center justify-between gap-5 mt-5">
+                    <div className="text-2xl font-bold">
+                      Rs {product.price}.00
+                    </div>
+                    <div
+                      onClick={() => addToCart(product)}
+                      className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
+                    >
+                      Add to cart
+                    </div>
                   </div>
                 </div>
-              </Link>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { GlobalContext } from "@/context";
+import { TextField } from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
 import React, { useContext, useRef, useState } from "react";
@@ -8,15 +9,15 @@ import React, { useContext, useRef, useState } from "react";
 const page = () => {
   const { isAuthUser, setIsAuthUser } = useContext(GlobalContext);
   const { email, setEmail } = useContext(GlobalContext);
-  const [Name, setName] = useState();
-  const [Password, setPassword] = useState();
+  // const [Name, setName] = useState();
+  // const [Password, setPassword] = useState();
 
   const name = useRef();
   const password = useRef();
 
   function handleSubmit() {
-    setName(name.current.value);
-    setPassword(password.current.value);
+    // setName(name.current.value);
+    // setPassword(password.current.value);
     // console.log(Name, Password);
     if (name.current.value && password.current.value) {
       axios
@@ -31,7 +32,7 @@ const page = () => {
           }
         )
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           if (response.data && response.data.length == 1) {
             setIsAuthUser(true);
             setEmail(name.current.value);
@@ -46,10 +47,10 @@ const page = () => {
         <section class="bg-gray-100 body-font">
           <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
             <div className="border p-5 m-5">
-              <div>{process.env.MONGO_URL}</div>
+              {/* <div>{process.env.MONGO_URL}</div> */}
               <Link
                 href="/components/Login/User/SignUpPage"
-                className="font-bold"
+                className="font-bold text-xl"
               >
                 Go to Sign Up
               </Link>
@@ -57,18 +58,36 @@ const page = () => {
             <div className="bg-white lg:w-[50rem] w-full p-10 rounded-2xl border shadow-xl">
               <div className="text-5xl text-center font-bold py-10">Log In</div>
               <div className="flex flex-col gap-6 mt-10">
-                <input
+                {/* <input
                   type="email"
                   ref={name}
                   className="border-4 p-3 rounded-lg text-2xl"
                   placeholder="Enter Email Address"
+                /> */}
+                <TextField
+                  id="outlined-basic"
+                  inputRef={name}
+                  type="text"
+                  label="Email Address"
+                  variant="outlined"
+                  // sx={{ border: "2px solid", color: "red" }}
+                  // sx={{ fontSize: "2rem", fontWeight: "semi-bold" }}
                 />
-                <input
+                <TextField
+                  id="outlined-basic"
+                  inputRef={password}
+                  type="password"
+                  label="Password"
+                  variant="outlined"
+                  // sx={{ border: "2px solid", color: "red" }}
+                  // sx={{ fontSize: "2rem", fontWeight: "semi-bold" }}
+                />
+                {/* <input
                   ref={password}
                   type="password"
                   className="border-4 p-3 rounded-lg text-2xl"
                   placeholder="Enter Password"
-                />
+                /> */}
               </div>
               <div
                 onClick={() => {
