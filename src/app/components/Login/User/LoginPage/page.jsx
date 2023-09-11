@@ -46,7 +46,7 @@ const page = () => {
         <section class="bg-gray-100 body-font">
           <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
             <div className="border p-5 m-5">
-              {/* <div>{process.env.MONGO_URL}</div> */}
+              <div>{process.env.MONGO_URL}</div>
               <Link
                 href="/components/Login/User/SignUpPage"
                 className="font-bold"

@@ -11,6 +11,7 @@ const page = () => {
     axios
       //   .get("https://fakestoreapi.com/products")
       // .get("/api/MainPage")
+      // The below one is used instead of above because of github issue
       .get("/MyEcommerce/api/MainPage")
       .then((res) => {
         // console.log(res);
