@@ -46,7 +46,11 @@ export async function GET() {
     // console.log(data);
     return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error: "Internal server error" });
+    console.log(error);
+    return NextResponse.json({
+      error: "Internal server error",
+      message: error,
+    });
   }
 }
 
