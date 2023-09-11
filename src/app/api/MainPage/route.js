@@ -8,7 +8,10 @@ dotenv.config({ path: "../../../.env" });
 mongoose
   // .connect(`mongodb://${process.env.DB_URL}`)
   //   .connect(`mongodb://localhost:27017/myecommerce`)
-  .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(console.log("Connected to db"))
   .catch((error) => console.error("MongoDb " + error));
 
@@ -81,6 +84,9 @@ export async function POST(req) {
     return NextResponse.json({ message: "Hello" });
   } catch (error) {
     console.log(error);
-    return NextResponse.json({ error: "Internal server error" });
+    return NextResponse.json({
+      error: "Internal server error",
+      message: error,
+    });
   }
 }

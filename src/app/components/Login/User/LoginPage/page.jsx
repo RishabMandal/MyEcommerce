@@ -39,8 +39,27 @@ const page = () => {
           }
         })
         .catch((error) => console.error(error));
+      handleSession();
     }
   }
+
+  async function handleSession() {
+    try {
+      const response = await axios
+        .post("http://localhost:5000/signup", {
+          name: "Rishab Mandal",
+          email: name.current.value,
+          admin: true,
+        })
+        .catch((error) => console.error(error));
+      // const { username, email, isAdmin, loggedIn } = response.data;
+      //   console.log(username, email, isAdmin, loggedIn);
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert("Registration error:", error);
+    }
+  }
+
   return (
     <div>
       <div>

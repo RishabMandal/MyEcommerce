@@ -11,8 +11,8 @@ const Navbar = () => {
   // const isAuthUser = false;
   // const [isAuthUser, setIsAuthUser] = useState(false);
   const { isAuthUser, setIsAuthUser } = useContext(GlobalContext);
-  // const [isAdminView, setIsAdminView] = useState(false);
-  const [isAdminView, setIsAdminView] = useState(true);
+  const [isAdminView, setIsAdminView] = useState(false);
+  // const [isAdminView, setIsAdminView] = useState(true);
   // const isAdminView = false;
   const [Name, setName] = useState();
   const user = {
@@ -20,13 +20,8 @@ const Navbar = () => {
   };
 
   axios.defaults.withCredentials = true;
+  const { setEmail } = useContext(GlobalContext);
   async function handleSession() {
-    // axios.post("http://localhost/5000/signup", {
-    //   Name,
-    //   Contact,
-    //   Email,
-    //   Password,
-    // });
     try {
       // const response = await axios.post("http://localhost:5000/signup", {
       //   // name: Name,
@@ -42,18 +37,21 @@ const Navbar = () => {
       const { username, email, isAdmin, loggedIn } = response.data;
       // console.log(username, email, isAdmin, loggedIn);
       // alert(username, email, isAdmin, loggedIn);
-      setIsAuthUser(loggedIn);
-      setIsAdminView(isAdmin);
-      setName(username);
+      if (response.data.email) {
+        setIsAuthUser(loggedIn);
+        setIsAdminView(isAdmin);
+        setName(username);
+        setEmail(email);
+      }
     } catch (error) {
-      console.error("Registration error:", error);
-      alert("Registration error:", error);
+      console.error("Session error:", error);
+      alert("Session error:", error);
     }
   }
 
-  // useEffect(() => {
-  //   handleSession();
-  // }, []);
+  useEffect(() => {
+    handleSession();
+  }, []);
 
   // const { showNavModal, setShowNavModal } = useContext(GlobalContext);
   const { Cart } = useContext(GlobalContext);
@@ -65,9 +63,9 @@ const Navbar = () => {
       <nav className="bg-[#121212] text-white sticky w-full z-20 top-0 left-0">
         <div className="flex flex-row px-4 py-5 justify-between items-center">
           <div className="text-4xl font-bold">PowerBilla Ecommerce</div>
-          <div className="cursor-pointer" onClick={() => handleSession()}>
+          {/* <div className="cursor-pointer" onClick={() => handleSession()}>
             Click to check session
-          </div>
+          </div> */}
           <div>
             <Link
               href="/components/Products/MainPage"

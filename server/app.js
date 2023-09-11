@@ -45,14 +45,14 @@ app.use(
   })
 );
 
-mongoose.set("strictQuery", true);
-mongoose.connect("mongodb://localhost:27017", { useNewUrlParser: true });
+// mongoose.set("strictQuery", true);
+// mongoose.connect("mongodb://localhost:27017", { useNewUrlParser: true });
 
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function () {
-  console.log("We are connected bro");
-});
+// var db = mongoose.connection;
+// db.on("error", console.error.bind(console, "connection error:"));
+// db.once("open", function () {
+//   console.log("We are connected bro");
+// });
 
 app.get("/test", (req, res) => {
   // console.log(req.session);

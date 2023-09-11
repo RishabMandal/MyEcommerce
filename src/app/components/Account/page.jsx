@@ -43,8 +43,8 @@ const page = () => {
             <div className="text-3xl font-bold mb-10">Orders</div>
             {orders?.map((order) => {
               return (
-                <div className="my-3">
-                  <div className="text-3xl font-bold">{order.title}</div>
+                <div className="my-3 border-t">
+                  <div className="text-3xl font-bold pt-4">{order.title}</div>
                   <div>{order.category}</div>
                   <img
                     src={order.image}

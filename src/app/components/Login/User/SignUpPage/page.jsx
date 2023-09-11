@@ -50,8 +50,8 @@ const page = () => {
         // name: Name,
         // // Contact,
         // email: Email,
-        name: "Krish BillaMan",
-        email: "John@example.com",
+        name: name.current.value,
+        email: email.current.value,
         admin: true,
         // password: Password,
       });
