@@ -4,6 +4,28 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
+//
+// export async function getStaticProps() {
+//   try {
+//     const res = await axios.get("/api/MainPage");
+//     const products = res.data;
+//     return {
+//       props: {
+//         products,
+//       },
+//     };
+//   } catch (error) {
+//     console.error(error);
+//     return {
+//       props: {
+//         products: [], // Return an empty array or handle the error as needed
+//       },
+//     };
+//   }
+// }
+//
+
+
 const page = () => {
   const [products, setProducts] = useState();
 
