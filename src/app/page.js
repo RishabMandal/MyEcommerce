@@ -1,5 +1,12 @@
-import Image from "next/image";
+"use client";
+
+// import Image from "next/image";
+import { default as MainPage } from "src/app/components/Products/MainPage/page.jsx";
 
 export default function Home() {
-  return <main></main>;
+  return (
+    <main>
+      <MainPage />
+    </main>
+  );
 }

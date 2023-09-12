@@ -6,7 +6,10 @@ dotenv.config({ path: "../../../.env" });
 mongoose
   // .connect(`mongodb://${process.env.DB_URL}`)
   //   .connect(`mongodb://localhost:27017/myecommerce`)
-  .connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(console.log("Connected to db"))
   .catch((error) => console.error("MongoDb " + error));
 
@@ -45,13 +48,28 @@ let db = mongoose.connection;
 // }
 export async function POST(req) {
   try {
-    const { category } = await req.json();
+    const { category, sort } = await req.json();
     // const numericId = parseInt(id);
     // console.log("Extracted id:", id);
-    const data = await db
-      .collection("availableproducts")
-      .find({ category: category })
-      .toArray();
+    let data;
+    if (sort === undefined || sort === "none") {
+      data = await db
+        .collection("availableproducts")
+        .find({ category: category })
+        .toArray();
+    } else if (sort === "Ascending") {
+      data = await db
+        .collection("availableproducts")
+        .find({ category: category })
+        .sort({ price: 1 })
+        .toArray();
+    } else {
+      data = await db
+        .collection("availableproducts")
+        .find({ category: category })
+        .sort({ price: -1 })
+        .toArray();
+    }
     // console.log("Found data:", data);
     return NextResponse.json(data);
   } catch (error) {
