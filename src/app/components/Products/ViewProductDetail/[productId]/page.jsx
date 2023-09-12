@@ -1,9 +1,11 @@
 "use client";
 
 import { GlobalContext } from "@/context";
+import { Alert, Snackbar } from "@mui/material";
 import axios from "axios";
 // import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
+import MultiImageCarousel from "@/components/MultiImageCarousel";
 
 const page = ({ params }) => {
   const { Cart, setCart } = useContext(GlobalContext);
@@ -22,22 +24,45 @@ const page = ({ params }) => {
   const addToCart = () => {
     if (Cart.length === 0) setCart([product]);
     else setCart([...Cart, product]);
-    alert("Added to cart successfully");
+    setToast(true);
   };
+
+  const [toast, setToast] = useState(false);
 
   return (
     <div>
+      <Snackbar
+        open={toast}
+        autoHideDuration={2500}
+        onClose={() => setToast(false)}
+      >
+        <Alert
+          onClose={() => setToast(false)}
+          variant="filled"
+          severity="success"
+          sx={{
+            width: "fit-content",
+            fontWeight: "bold",
+          }}
+        >
+          Added to Cart Successfully!
+        </Alert>
+      </Snackbar>
       <div className="min-h-[90vh] bg-gray-100">
         {/* <div>{productID}</div> */}
         {product && (
           <section class="text-[#121212] body-font overflow-hidden">
             <div class="container px-5 py-20 mx-auto">
               <div class="lg:w-full mx-auto flex flex-wrap">
-                <img
-                  alt="ecommerce"
-                  class="lg:w-1/2 w-full lg:h-auto object-cover object-center rounded cursor-pointer hover:scale-125 duration-200 ease-in-out"
-                  src={product.image}
-                />
+                {product?.otherImages ? (
+                  <MultiImageCarousel images={product?.otherImages} />
+                ) : (
+                  <img
+                    alt="ecommerce"
+                    class="lg:w-1/2 w-full lg:h-auto object-cover object-center rounded cursor-pointer hover:scale-125 duration-200 ease-in-out"
+                    src={product?.image}
+                  />
+                )}
                 <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 class="text-sm title-font text-gray-500 tracking-widest">
                     {product.category}
@@ -100,7 +125,9 @@ const page = ({ params }) => {
                       >
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                       </svg>
-                      <span class="text-gray-600 ml-3">{product.rating.count} Reviews</span>
+                      <span class="text-gray-600 ml-3">
+                        {product.rating.count} Reviews
+                      </span>
                     </span>
                     <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
                       <a class="text-gray-500">
@@ -178,7 +205,7 @@ const page = ({ params }) => {
                   </div>
                   <div className="flex flex-wrap items-center gap-5">
                     <div className="text-3xl font-bold">
-                      Rs {product.price}.00
+                      ₹{product.price}.00
                     </div>
                     <div
                       onClick={addToCart}
@@ -218,6 +245,30 @@ const page = ({ params }) => {
             </div>
           </section>
         )}
+        <div className="container mx-auto pb-20">
+          <div className="text-4xl font-bold py-5">Reviews</div>
+          <div className="flex flex-row gap-10">
+            <div className="p-10 w-full bg-white border shadow-xl rounded-xl">
+              <div className="font-semibold text-3xl my-5">Add a review</div>
+              <input
+                type="text"
+                className="w-full p-3 text-2xl border-4 my-2 rounded-xl"
+                placeholder="Title"
+              />
+              <input
+                type="text"
+                className="w-full p-3 text-2xl border-4 my-2 rounded-xl"
+                placeholder="Was it good? Pros? Cons?"
+              />
+              <button className="cursor-pointer my-5 border-2 bg-[#121212] text-white border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-xl font-bold">
+                Submit your response
+              </button>
+            </div>
+            <div className="p-10 w-full bg-white border shadow-xl rounded-xl">
+              <div className="font-semibold text-3xl">No reviews yet</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

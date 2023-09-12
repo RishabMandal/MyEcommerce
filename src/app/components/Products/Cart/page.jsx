@@ -15,6 +15,12 @@ const page = () => {
       settotalPriceDay((prev) => prev + product.price);
     });
   }, [Cart]);
+
+  function removeProduct(id) {
+    const updatedItems = Cart.filter((item) => item.id !== id);
+    settotalPriceDay(0);
+    setCart(updatedItems);
+  }
   return (
     <div>
       <div className="p-5 bg-gray-100 min-h-[70vh]">
@@ -30,7 +36,7 @@ const page = () => {
                   return (
                     <div
                       key={product?.id}
-                      className="border rounded-xl shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
+                      className="border flex flex-col justify-between rounded-xl shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
                     >
                       <div className="text-3xl font-bold">{product?.title}</div>
                       <div>{product?.category}</div>
@@ -39,12 +45,12 @@ const page = () => {
                         alt=""
                         className="max-h-[50vh] w-full object-contain mt-5"
                       />
-                      <div className="flex flex-wrap items-center justify-between gap-5 mt-5">
+                      <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
                         <div className="text-2xl font-bold">
                           Rs {product?.price}.00
                         </div>
                         <div
-                          // onClick={addToCart}
+                          onClick={() => removeProduct(product?.id)}
                           className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
                         >
                           Remove
@@ -70,11 +76,15 @@ const page = () => {
           <div className="bg-white p-5 shadow-xl border rounded-xl">
             <div className="text-2xl font-bold py-5">Order Details</div>
             <div className="text-xl">Order Total: ₹{totalPriceDay || 0}.00</div>
-            <div className="text-xl">CGST: ₹{totalPriceDay * 0.9 || 0.0}</div>
-            <div className="text-xl">SGST: ₹{totalPriceDay * 0.9 || 0.0}</div>
+            <div className="text-xl">
+              CGST: ₹{Math.ceil(totalPriceDay * 0.9) || 0}.00
+            </div>
+            <div className="text-xl">
+              SGST: ₹{Math.ceil(totalPriceDay * 0.9) || 0}.00
+            </div>
             <div className="text-xl">Other taxes: ₹0.00</div>
             <div className="text-xl">
-              Discount: -₹{totalPriceDay * 0.18 || 0.0}
+              Discount: -₹{Math.ceil(totalPriceDay * 0.18) || 0}.00
             </div>
             <div className="text-xl">
               Total Payable: ₹{totalPriceDay || 0}.00
@@ -87,13 +97,18 @@ const page = () => {
             </Link> */}
             <button
               onClick={() => {
-                checkout({
-                  lineItems: [
-                    { price: "price_1Np80oSHBnKtF1MbmfiUoPRE", quantity: 1 },
-                  ],
-                });
+                if (totalPriceDay === 0) alert("Cart is empty");
+                else {
+                  checkout({
+                    lineItems: [
+                      { price: "price_1Np80oSHBnKtF1MbmfiUoPRE", quantity: 1 },
+                    ],
+                  });
+                }
               }}
-              className="block bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white text-center rounded-lg p-3 my-5 mx-auto"
+              className={`block ${
+                totalPriceDay > 0 ? "bg-red-600" : "bg-gray-400"
+              } hover:bg-red-700 duration-200 font-semibold text-white text-center rounded-lg p-3 my-5 mx-auto`}
             >
               Proceed to Pay
             </button>

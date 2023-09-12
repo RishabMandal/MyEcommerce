@@ -48,6 +48,24 @@ const page = () => {
 
   const [toast, setToast] = useState(false);
 
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(9);
+
+  // Calculate the index of the first and last product to display
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products?.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const totalPages = Math.ceil(products?.length / productsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div>
       <div className="bg-[#121212] text-white p-5">
@@ -107,17 +125,18 @@ const page = () => {
           Available Products
         </div>
         <div className="flex flex-wrap gap-10 justify-center">
-          {products ? (
+          {/* {products ? (
             products.length > 0 &&
             products?.map((product) => {
+              return ( */}
+          {currentProducts?.length > 0 ? (
+            currentProducts.map((product) => {
               return (
                 <div
                   // href={`/components/Products/ViewProductDetail/${product.id}`}
                   key={product.id}
                   className="border flex flex-col justify-between rounded-xl hover:scale-105 duration-200 shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
                 >
-                  {/* <div>{product.id}</div> */}
-
                   <Link
                     href={`/components/Products/ViewProductDetail/${product.id}`}
                     className="cursor-pointer"
@@ -131,8 +150,15 @@ const page = () => {
                     />
                   </Link>
                   <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
-                    <div className="text-2xl font-bold">
-                      Rs {product.price}.00
+                    <div className="flex flex-wrap">
+                      {product?.title?.toLowerCase()?.includes("lehenga") && (
+                        <div className="text-2xl font-bold text-red-600 line-through mr-2">
+                          ₹{Math.ceil(product.price * 3.1)}.00
+                        </div>
+                      )}
+                      <div className="text-2xl font-bold">
+                        ₹{product.price}.00
+                      </div>
                     </div>
                     <div
                       onClick={() => {
@@ -140,8 +166,6 @@ const page = () => {
                           if (Cart.length === 0) setCart([product]);
                           else setCart([...Cart, product]);
                           setToast(true);
-                          setCustomAlertState(true);
-                          customAlert("Error adding to cart");
                         } else {
                           alert("Error adding to cart");
                         }
@@ -157,6 +181,20 @@ const page = () => {
           ) : (
             <div>Rushing database to Load...</div>
           )}
+        </div>
+        <div className="text-center mt-10">
+          {totalPages > 1 &&
+            Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                className={`${
+                  currentPage === index + 1 ? "bg-gray-300" : "bg-gray-200"
+                } px-4 py-2 m-1 rounded-lg cursor-pointer hover:scale-110 duration-200`}
+              >
+                {index + 1}
+              </button>
+            ))}
         </div>
       </div>
     </div>

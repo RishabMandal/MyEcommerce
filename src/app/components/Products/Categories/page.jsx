@@ -1,6 +1,7 @@
 "use client";
 
 import { GlobalContext } from "@/context";
+import { Alert, Snackbar } from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
@@ -22,9 +23,61 @@ const page = () => {
   }, [Categories, Sort]);
 
   const { Cart, setCart } = useContext(GlobalContext);
+  const [toast, setToast] = useState(false);
 
   return (
     <div>
+      {/* // */}
+      <div className="bg-[#121212] text-white p-5">
+        <div className="flex flex-row my-28 items-center justify-evenly">
+          <div>
+            <div className="text-6xl font-bold">Happy Ganesh Chaturthi !!</div>
+            <div className="text-2xl text-gray-200 my-10">
+              Upto 70% off on selected Lehengas.
+            </div>
+            <div className="flex flex-row gap-5">
+              <div
+                onClick={() => setCategories("women's clothing")}
+                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-xl font-bold"
+              >
+                Go to sale
+              </div>
+              {/* <div
+                onClick={() =>
+                  window.location.replace("https://www.apple.com/in/")
+                }
+                className="cursor-pointer rounded-xl p-4 text-xl font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
+              >
+                Coming Soon
+              </div> */}
+            </div>
+          </div>
+          <img
+            src="https://medias.utsavfashion.com/media/catalog/product/cache/1/image/500x/040ec09b1e35df139433887a97daa66f/e/m/embroidered-net-lehenga-in-sea-green-v1-lyc2512.jpg"
+            alt="Product Image"
+            className="object-contain cursor-pointer h-[30vh] w-fit rounded-xl"
+            onClick={() => setCategories("women's clothing")}
+          />
+        </div>
+      </div>
+      {/* // */}
+      <Snackbar
+        open={toast}
+        autoHideDuration={2500}
+        onClose={() => setToast(false)}
+      >
+        <Alert
+          onClose={() => setToast(false)}
+          variant="filled"
+          severity="success"
+          sx={{
+            width: "fit-content",
+            fontWeight: "bold",
+          }}
+        >
+          Added to Cart Successfully!
+        </Alert>
+      </Snackbar>
       <div className="p-5 pb-10 bg-gray-100 min-h-[70vh]">
         <div className="text-5xl my-10 text-center font-semibold">
           Categories
@@ -123,10 +176,12 @@ const page = () => {
             products.map((product) => {
               return (
                 <div
+                  // href={`/components/Products/ViewProductDetail/${product.id}`}
                   key={product.id}
-                  className="border rounded-xl shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
+                  className="border flex flex-col justify-between rounded-xl hover:scale-105 duration-200 shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
                 >
                   {/* <div>{product.id}</div> */}
+
                   <Link
                     href={`/components/Products/ViewProductDetail/${product.id}`}
                     className="cursor-pointer"
@@ -139,16 +194,23 @@ const page = () => {
                       className="max-h-[50vh] w-full object-contain mt-5"
                     />
                   </Link>
-                  <div className="flex flex-wrap items-center justify-between gap-5 mt-5">
-                    <div className="text-2xl font-bold">
-                      Rs {product.price}.00
+                  <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
+                    <div className="flex flex-wrap">
+                      {product?.title?.toLowerCase()?.includes("lehenga") && (
+                        <div className="text-2xl font-bold text-red-600 line-through mr-2">
+                          ₹{Math.ceil(product.price * 3.1)}.00
+                        </div>
+                      )}
+                      <div className="text-2xl font-bold">
+                        ₹{product.price}.00
+                      </div>
                     </div>
                     <div
                       onClick={() => {
                         if (product) {
                           if (Cart.length === 0) setCart([product]);
                           else setCart([...Cart, product]);
-                          alert("Added to cart successfully");
+                          setToast(true);
                         } else {
                           alert("Error adding to cart");
                         }
