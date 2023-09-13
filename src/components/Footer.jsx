@@ -8,20 +8,20 @@ const Footer = () => {
           <div class="flex flex-wrap md:text-left text-center order-first">
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">
-                CATEGORIES
+                ABOUT US
               </h2>
               <nav class="list-none mb-10">
                 <li>
-                  <a class="text-gray-400 hover:text-white">First Link</a>
+                  <a class="text-gray-400 hover:text-white">Description</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Second Link</a>
+                  <a class="text-gray-400 hover:text-white">Career</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Third Link</a>
+                  <a class="text-gray-400 hover:text-white">Investors</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Fourth Link</a>
+                  <a class="text-gray-400 hover:text-white">Ethics</a>
                 </li>
               </nav>
             </div>
@@ -31,35 +31,35 @@ const Footer = () => {
               </h2>
               <nav class="list-none mb-10">
                 <li>
-                  <a class="text-gray-400 hover:text-white">First Link</a>
+                  <a class="text-gray-400 hover:text-white">Men</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Second Link</a>
+                  <a class="text-gray-400 hover:text-white">Women</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Third Link</a>
+                  <a class="text-gray-400 hover:text-white">Electronics</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Fourth Link</a>
+                  <a class="text-gray-400 hover:text-white">Jewellery</a>
                 </li>
               </nav>
             </div>
             <div class="lg:w-1/4 md:w-1/2 w-full px-4">
               <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">
-                CATEGORIES
+                FAQ
               </h2>
               <nav class="list-none mb-10">
                 <li>
-                  <a class="text-gray-400 hover:text-white">First Link</a>
+                  <a class="text-gray-400 hover:text-white">Contact Us</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Second Link</a>
+                  <a class="text-gray-400 hover:text-white">Email Us</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Third Link</a>
+                  <a class="text-gray-400 hover:text-white">Give Feedback</a>
                 </li>
                 <li>
-                  <a class="text-gray-400 hover:text-white">Fourth Link</a>
+                  <a class="text-gray-400 hover:text-white">Get Help</a>
                 </li>
               </nav>
             </div>
@@ -69,12 +69,6 @@ const Footer = () => {
               </h2>
               <div class="flex xl:flex-nowrap md:flex-nowrap lg:flex-wrap flex-wrap justify-center items-end md:justify-start">
                 <div class="relative w-40 sm:w-auto xl:mr-4 lg:mr-0 sm:mr-4 mr-2">
-                  <label
-                    for="footer-field"
-                    class="leading-7 text-sm text-gray-400"
-                  >
-                    Placeholder
-                  </label>
                   <input
                     type="text"
                     id="footer-field"
@@ -82,7 +76,7 @@ const Footer = () => {
                     class="w-full bg-gray-800 rounded border bg-opacity-40 border-gray-700 focus:bg-transparent focus:ring-2 focus:ring-red-900 focus:border-red-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
-                <button class="lg:mt-2 xl:mt-0 font-semibold flex-shrink-0 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                <button class="lg:mt-2 xl:mt-0 font-semibold flex-shrink-0 inline-flex text-white bg-red-600 border-0 py-2 px-6 focus:outline-none hover:bg-red-700 rounded">
                   SUBSCRIBE
                 </button>
               </div>

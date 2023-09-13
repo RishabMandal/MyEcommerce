@@ -55,7 +55,8 @@ const page = () => {
           <img
             src="https://medias.utsavfashion.com/media/catalog/product/cache/1/image/500x/040ec09b1e35df139433887a97daa66f/e/m/embroidered-net-lehenga-in-sea-green-v1-lyc2512.jpg"
             alt="Product Image"
-            className="object-contain cursor-pointer h-[30vh] w-fit rounded-xl"
+            // className="object-contain cursor-pointer h-[30vh] w-fit rounded-xl"
+            className="object-contain object-center cursor-pointer h-[38vh] w-fit -mt-16 -mb-10 rounded-xl"
             onClick={() => setCategories("women's clothing")}
           />
         </div>
@@ -84,7 +85,7 @@ const page = () => {
         </div>
         <div className="flex flex-wrap justify-center mb-10 gap-5">
           <div
-            className="cursor-pointer"
+            className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("men's clothing")}
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
@@ -93,7 +94,7 @@ const page = () => {
             </div>
           </div>
           <div
-            className="cursor-pointer"
+            className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("women's clothing")}
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
@@ -102,7 +103,7 @@ const page = () => {
             </div>
           </div>
           <div
-            className="cursor-pointer"
+            className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("smartphone")}
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
@@ -111,7 +112,7 @@ const page = () => {
             </div>
           </div>
           <div
-            className="cursor-pointer"
+            className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("jewelery")}
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
@@ -120,7 +121,7 @@ const page = () => {
             </div>
           </div>
           <div
-            className="cursor-pointer"
+            className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("electronics")}
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
@@ -180,18 +181,18 @@ const page = () => {
                   key={product.id}
                   className="border flex flex-col justify-between rounded-xl hover:scale-105 duration-200 shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
                 >
-                  {/* <div>{product.id}</div> */}
-
                   <Link
                     href={`/components/Products/ViewProductDetail/${product.id}`}
-                    className="cursor-pointer"
+                    className="cursor-pointer h-full"
                   >
-                    <div className="text-3xl font-bold">{product.title}</div>
-                    <div>{product.category}</div>
+                    <div>
+                      <div className="text-3xl font-bold">{product.title}</div>
+                      <div>{product.category}</div>
+                    </div>
                     <img
                       src={product.image}
                       alt=""
-                      className="max-h-[50vh] w-full object-contain mt-5"
+                      className="max-h-[50vh] w-full h-full object-center object-contain pt-5"
                     />
                   </Link>
                   <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">

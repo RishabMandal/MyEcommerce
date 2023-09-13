@@ -16,6 +16,24 @@
   }
 } */
 
+.carousel .control-arrow:hover,
+.carousel .control-arrow:focus {
+  background-color: #ff5733; /* Change to your desired color */
+  color: red; /* Change to your desired color */
+}
+
+/* Customize the arrow color when active */
+.carousel .control-arrow.carousel-slider .control-arrow.active {
+  background-color: #ff5733; /* Change to your desired color */
+  color: red; /* Change to your desired color */
+}
+
+/* Customize the arrow color when disabled */
+.carousel .control-arrow.carousel-slider .control-arrow.inactive {
+  background-color: #ddd; /* Change to your desired color */
+  color: red; /* Change to your desired color */
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

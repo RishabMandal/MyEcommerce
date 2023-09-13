@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"nodemon server.js\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -19,12 +19,13 @@
     "axios": "^1.5.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "concurrently": "^8.2.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
-    "firebase": "^10.0.0",
+    "firebase": "^10.3.1",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.5.0",

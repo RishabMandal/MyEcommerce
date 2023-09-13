@@ -169,7 +169,7 @@ const Navbar = () => {
             )}
             {!isAuthUser ? (
               <Link
-                href="/components/Login"
+                href="/components/Login/User/LoginPage"
                 className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
               >
                 Login

@@ -24,19 +24,19 @@ const page = () => {
   return (
     <div>
       <div className="p-5 bg-gray-100 min-h-[70vh]">
-        <div className="text-5xl text-center my-5 font-bold">
+        <div className="text-5xl text-center mb-16 mt-8 font-bold">
           YOUR SHOPPING CART
         </div>
-        <div className="flex flex-row justify-between">
-          <div>
-            <div className="text-3xl text-center font-semibold">Cart items</div>
+        <div className="flex flex-row justify-evenly gap-10">
+          <div className="border shadow-xl bg-white p-10 rounded-2xl w-full">
+            <div className="text-3xl text-center font-bold py-5">Cart items</div>
             <div className="flex flex-wrap gap-5 justify-center">
               {Cart && Cart.length > 0 ? (
                 Cart.map((product) => {
                   return (
                     <div
                       key={product?.id}
-                      className="border flex flex-col justify-between rounded-xl shadow-xl p-5 cursor-pointer bg-white lg:w-1/4 md:w-1/2 w-full"
+                      className="border flex flex-col justify-between rounded-xl shadow-xl p-5 cursor-pointer hover:scale-105 duration-200 bg-white lg:w-1/4 md:w-1/2 w-full"
                     >
                       <div className="text-3xl font-bold">{product?.title}</div>
                       <div>{product?.category}</div>
@@ -60,11 +60,11 @@ const page = () => {
                   );
                 })
               ) : (
-                <div>
-                  <div className="py-10 text-center">No items in Cart</div>
+                <div className="flex flex-col justify-center">
+                  <div className="py-10 text-center text-xl font-semibold text-gray-800">Your Cart is empty</div>
                   <Link
                     href="/components/Products/MainPage"
-                    className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-auto"
+                    className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-center text-white rounded-lg p-3"
                   >
                     Move to Products
                   </Link>
@@ -73,20 +73,22 @@ const page = () => {
             </div>
           </div>
           {/* {Cart && Cart.length > 0 && ( */}
-          <div className="bg-white p-5 shadow-xl border rounded-xl">
-            <div className="text-2xl font-bold py-5">Order Details</div>
-            <div className="text-xl">Order Total: ₹{totalPriceDay || 0}.00</div>
-            <div className="text-xl">
-              CGST: ₹{Math.ceil(totalPriceDay * 0.9) || 0}.00
+          <div className="bg-white p-10 shadow-xl border rounded-2xl">
+            <div className="text-3xl font-bold py-5">Order Details</div>
+            <div className="text-xl py-1">
+              Order Total: ₹{totalPriceDay || 0}.00
             </div>
-            <div className="text-xl">
-              SGST: ₹{Math.ceil(totalPriceDay * 0.9) || 0}.00
+            <div className="text-xl py-1">
+              CGST: ₹{Math.ceil(totalPriceDay * 0.09) || 0}.00
             </div>
-            <div className="text-xl">Other taxes: ₹0.00</div>
-            <div className="text-xl">
+            <div className="text-xl py-1">
+              SGST: ₹{Math.ceil(totalPriceDay * 0.09) || 0}.00
+            </div>
+            <div className="text-xl py-1">Other taxes: ₹0.00</div>
+            <div className="text-xl py-1">
               Discount: -₹{Math.ceil(totalPriceDay * 0.18) || 0}.00
             </div>
-            <div className="text-xl">
+            <div className="text-2xl py-2 font-semibold">
               Total Payable: ₹{totalPriceDay || 0}.00
             </div>
             {/* <Link
@@ -112,13 +114,15 @@ const page = () => {
             >
               Proceed to Pay
             </button>
-            or
-            <Link
-              href="/components/Products/MainPage"
-              className="ml-1 text-red-600 hover:underline"
-            >
-              Continue Shopping
-            </Link>
+            <div className="flex flex-row justify-center">
+              or
+              <Link
+                href="/components/Products/MainPage"
+                className="ml-1 text-red-600 hover:underline"
+              >
+                Continue Shopping
+              </Link>
+            </div>
           </div>
           {/* // )} */}
         </div>
