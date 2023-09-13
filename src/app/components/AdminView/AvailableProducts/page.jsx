@@ -77,7 +77,7 @@ const page = () => {
                     />
                     <div className="flex flex-wrap items-center justify-between gap-5 mt-5">
                       <div className="text-2xl font-bold">
-                        Rs {product.price}.00
+                        ₹{product.price}.00
                       </div>
                       <div
                         onClick={() => handleDelete(product.id)}

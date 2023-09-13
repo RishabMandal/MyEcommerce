@@ -87,7 +87,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-[#121212] text-white sticky w-full z-20 top-0 left-0">
-        <div className="flex flex-row px-4 py-5 justify-between items-center">
+        <div className="flex flex-col lg:flex-row px-4 py-5 justify-between items-center">
           <div className="text-4xl font-bold">PowerBilla Ecommerce</div>
           {/* <div className="cursor-pointer" onClick={() => handleSession()}>
             Click to check session

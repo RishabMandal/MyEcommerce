@@ -29,7 +29,7 @@ const page = () => {
     <div>
       {/* // */}
       <div className="bg-[#121212] text-white p-5">
-        <div className="flex flex-row my-28 items-center justify-evenly">
+        <div className="lg:flex flex-row my-28 items-center justify-evenly">
           <div>
             <div className="text-6xl font-bold">Happy Ganesh Chaturthi !!</div>
             <div className="text-2xl text-gray-200 my-10">
@@ -56,7 +56,7 @@ const page = () => {
             src="https://medias.utsavfashion.com/media/catalog/product/cache/1/image/500x/040ec09b1e35df139433887a97daa66f/e/m/embroidered-net-lehenga-in-sea-green-v1-lyc2512.jpg"
             alt="Product Image"
             // className="object-contain cursor-pointer h-[30vh] w-fit rounded-xl"
-            className="object-contain object-center cursor-pointer h-[38vh] w-fit -mt-16 -mb-10 rounded-xl"
+            className="object-contain object-center cursor-pointer mx-auto h-[38vh] w-fit mt-5 lg:-mt-16 -mb-10 rounded-xl"
             onClick={() => setCategories("women's clothing")}
           />
         </div>

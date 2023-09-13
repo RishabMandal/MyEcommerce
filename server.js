@@ -29,7 +29,11 @@ app.use(cookieParser());
 // app.use("/static", express.static("static"));
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:5000"],
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:5000",
+      "https://myecommerce-seven.vercel.app",
+    ],
     methods: ["GET", "HEAD", "POST"],
     credentials: true,
   })
