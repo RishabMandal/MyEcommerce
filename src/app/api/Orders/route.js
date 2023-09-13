@@ -3,21 +3,21 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config({ path: "../../../.env" });
 
-mongoose
-  // .connect(`mongodb://${process.env.DB_URL}`)
-  //   .connect(`mongodb://localhost:27017/myecommerce`)
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(console.log("Connected to db"))
-  .catch((error) => console.error("MongoDb " + error));
-
-//db
-let db = mongoose.connection;
-
 export async function POST(req) {
   try {
+    mongoose
+      // .connect(`mongodb://${process.env.DB_URL}`)
+      //   .connect(`mongodb://localhost:27017/myecommerce`)
+      .connect(process.env.MONGO_URL, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+      .then(console.log("Connected to db"))
+      .catch((error) => console.error("MongoDb " + error));
+
+    //db
+    let db = mongoose.connection;
+
     const { email } = await req.json();
     // const numericId = parseInt(id);
     // console.log("Extracted id:", id);
@@ -25,10 +25,7 @@ export async function POST(req) {
     if (email === "all") {
       data = await db.collection("orders").find().toArray();
     } else {
-      data = await db
-        .collection("orders")
-        .find({ email: email })
-        .toArray();
+      data = await db.collection("orders").find({ email: email }).toArray();
     }
     // console.log("Found data:", data);
     return NextResponse.json(data);
