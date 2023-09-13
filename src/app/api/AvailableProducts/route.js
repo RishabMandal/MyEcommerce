@@ -6,7 +6,7 @@ dotenv.config({ path: "../../../.env" });
 
 export async function GET() {
   try {
-    mongoose
+    await mongoose
       // .connect(`mongodb://${process.env.DB_URL}`)
       //   .connect(`mongodb://localhost:27017/myecommerce`)
       .connect(process.env.MONGO_URL, {
@@ -28,7 +28,7 @@ export async function GET() {
 
 export async function POST(req) {
   try {
-    mongoose
+    await mongoose
       // .connect(`mongodb://${process.env.DB_URL}`)
       //   .connect(`mongodb://localhost:27017/myecommerce`)
       .connect(process.env.MONGO_URL, {
