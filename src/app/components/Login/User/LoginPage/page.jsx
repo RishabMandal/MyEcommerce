@@ -49,7 +49,7 @@ const page = () => {
     try {
       if (userEmail) {
         const response = await axios
-          .post("http://localhost:5000/signup", {
+          .post("https://my-ecommerce-api-2.vercel.app/signup", {
             name: "Rishab Mandal",
             email: userEmail,
             admin: true,
