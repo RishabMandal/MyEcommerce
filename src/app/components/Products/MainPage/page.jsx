@@ -37,7 +37,8 @@ const page = () => {
     axios
       //   .get("https://fakestoreapi.com/products")
       // .get("/api/MainPage")
-      .get("http://localhost:5000/MainPage")
+      // .get("http://localhost:5000/MainPage")
+      .get("https://my-ecommerce-api-2.vercel.app/MainPage")
       .then((res) => {
         // console.log(res);
         setProducts(res.data);
