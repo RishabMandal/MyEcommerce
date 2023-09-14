@@ -75,7 +75,7 @@ const page = ({ params }) => {
                     <div class="flex mb-4">
                       <span class="flex items-center">
                         <svg
-                          fill="currentColor"
+                          fill={product?.rating.rate >= 1 ? "currentColor" : "none"}
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -86,7 +86,7 @@ const page = ({ params }) => {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <svg
-                          fill="currentColor"
+                          fill={product?.rating.rate >= 2 ? "currentColor" : "none"}
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -97,7 +97,7 @@ const page = ({ params }) => {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <svg
-                          fill="currentColor"
+                          fill={product?.rating.rate >= 3 ? "currentColor" : "none"}
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -108,7 +108,7 @@ const page = ({ params }) => {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <svg
-                          fill="currentColor"
+                          fill={product?.rating.rate >= 4 ? "currentColor" : "none"}
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -119,7 +119,7 @@ const page = ({ params }) => {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <svg
-                          fill="none"
+                          fill={product?.rating.rate >= 5 ? "currentColor" : "none"}
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -256,9 +256,9 @@ const page = ({ params }) => {
             </div>
           )}
         </div>
-        <div className="container mx-auto pb-20">
+        <div className="container mx-auto pb-20 p-5">
           <div className="text-4xl font-bold py-5">Reviews</div>
-          <div className="flex flex-row gap-10">
+          <div className="flex flex-col-reverse lg:flex-row gap-10">
             <div className="p-10 w-full bg-white border shadow-xl rounded-xl">
               <div className="font-semibold text-3xl my-5">Add a review</div>
               <input

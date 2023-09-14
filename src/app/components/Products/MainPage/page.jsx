@@ -108,7 +108,7 @@ const page = () => {
             src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693009283815"
             alt="Product Image"
             // className="object-contain cursor-pointer h-[30vh] w-fit rounded-xl"
-            className="object-cover object-center cursor-pointer h-[35vh] w-[45vh] mx-auto lg:-mt-10 rounded-xl"
+            className="object-cover object-center cursor-pointer h-[35vh] w-[45vh] mx-auto lg:mx-0 lg:-mt-10 rounded-xl"
             onClick={() => window.location.replace("https://www.apple.com/in/")}
           />
         </div>
