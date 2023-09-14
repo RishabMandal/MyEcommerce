@@ -11,7 +11,7 @@ const page = () => {
   // console.log(Cart);
   const [totalPriceDay, settotalPriceDay] = useState(0);
   useEffect(() => {
-    Cart.forEach((product) => {
+    Cart?.forEach((product) => {
       settotalPriceDay((prev) => prev + product.price);
     });
   }, [Cart]);

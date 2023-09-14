@@ -48,8 +48,7 @@ export async function POST(req) {
     let db = mongoose.connection;
 
     const { email, password } = await req.json();
-    // const numericId = parseInt(id);
-    // console.log("Extracted id:", id);
+    // console.log(email,password);
     const data = await db
       .collection("users")
       .find({ email: email, password: password })

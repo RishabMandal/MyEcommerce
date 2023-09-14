@@ -25,7 +25,7 @@ const Navbar = () => {
       const response = await axios.get(
         "https://my-ecommerce-api-2.vercel.app/test"
       );
-      console.log(response.data);
+      // console.log(response.data);
       const { username, email, isAdmin, loggedIn } = response.data;
       // console.log(username, email, isAdmin, loggedIn);
       // alert(username, email, isAdmin, loggedIn);
@@ -46,7 +46,22 @@ const Navbar = () => {
   }, []);
 
   // const { showNavModal, setShowNavModal } = useContext(GlobalContext);
-  const { Cart } = useContext(GlobalContext);
+  const { Cart, setCart, email } = useContext(GlobalContext);
+  useEffect(() => {
+    try {
+      if (email) {
+        axios
+          .post("/api/Cart", { operation: "get", email: email })
+          .then((res) => {
+            console.log(res.data);
+            setCart(res.data);
+          })
+          .catch((err) => console.log(err));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [email]);
 
   const [openModal, setOpenModal] = useState(false);
 

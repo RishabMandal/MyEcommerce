@@ -42,7 +42,7 @@ const page = () => {
           }
         })
         .catch((error) => console.error(error));
-      handleSession(name.current.value);
+      // handleSession(name.current.value);
     }
   }
 

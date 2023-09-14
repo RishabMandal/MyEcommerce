@@ -3,21 +3,23 @@
 import { GlobalContext } from "@/context";
 import { Alert, Snackbar } from "@mui/material";
 import axios from "axios";
-// import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import MultiImageCarousel from "@/components/MultiImageCarousel";
 import "./carousel.css";
+import Link from "next/link";
 
 const page = ({ params }) => {
   const { Cart, setCart } = useContext(GlobalContext);
   const [product, setProduct] = useState();
   const [productID, setProductID] = useState(params.productId);
+  const [Categories, setCategories] = useState("men's clothing");
   useEffect(() => {
     axios
       .post("/api/ViewProductDetail", { id: params.productId })
       .then((response) => {
         // console.log(response.data);
         setProduct(response.data[0]);
+        setCategories(response.data[0].category);
       })
       .catch((error) => console.log(error));
   }, [productID]);
@@ -27,6 +29,19 @@ const page = ({ params }) => {
     else setCart([...Cart, product]);
     setToast(true);
   };
+
+  const [recommendedProducts, setrecommendedProducts] = useState();
+
+  useEffect(() => {
+    axios
+      .post("/api/Categories", { category: Categories, sort: "none" })
+      .then((res) => {
+        // console.log(res);
+        setrecommendedProducts(res.data);
+      })
+      .catch((err) => console.log(err));
+    // alert("ok");
+  }, [Categories]);
 
   const [toast, setToast] = useState(false);
 
@@ -75,7 +90,9 @@ const page = ({ params }) => {
                     <div class="flex mb-4">
                       <span class="flex items-center">
                         <svg
-                          fill={product?.rating.rate >= 1 ? "currentColor" : "none"}
+                          fill={
+                            product?.rating.rate >= 1 ? "currentColor" : "none"
+                          }
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -86,7 +103,9 @@ const page = ({ params }) => {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <svg
-                          fill={product?.rating.rate >= 2 ? "currentColor" : "none"}
+                          fill={
+                            product?.rating.rate >= 2 ? "currentColor" : "none"
+                          }
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -97,7 +116,9 @@ const page = ({ params }) => {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <svg
-                          fill={product?.rating.rate >= 3 ? "currentColor" : "none"}
+                          fill={
+                            product?.rating.rate >= 3 ? "currentColor" : "none"
+                          }
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -108,7 +129,9 @@ const page = ({ params }) => {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <svg
-                          fill={product?.rating.rate >= 4 ? "currentColor" : "none"}
+                          fill={
+                            product?.rating.rate >= 4 ? "currentColor" : "none"
+                          }
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -119,7 +142,9 @@ const page = ({ params }) => {
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <svg
-                          fill={product?.rating.rate >= 5 ? "currentColor" : "none"}
+                          fill={
+                            product?.rating.rate >= 5 ? "currentColor" : "none"
+                          }
                           stroke="currentColor"
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -278,6 +303,80 @@ const page = ({ params }) => {
             <div className="p-10 w-full bg-white border shadow-xl rounded-xl">
               <div className="font-semibold text-3xl">No reviews yet</div>
             </div>
+          </div>
+        </div>
+        <div className="container mx-auto pb-20 p-5">
+          <div className="text-4xl font-bold py-5">Frequently Viewed</div>
+          <div className="flex flex-wrap gap-10">
+            {recommendedProducts && recommendedProducts.length > 0 ? (
+              recommendedProducts
+                .filter((product) => product.id != params.productId)
+                .map((product) => {
+                  return (
+                    <div
+                      // href={`/components/Products/ViewProductDetail/${product.id}`}
+                      key={product.id}
+                      className="border flex flex-col mx-auto justify-between rounded-xl hover:scale-105 duration-200 shadow-xl p-5 cursor-pointer bg-white lg:w-[31%] md:w-1/2 w-full"
+                    >
+                      <Link
+                        href={`/components/Products/ViewProductDetail/${product.id}`}
+                        className="cursor-pointer h-full"
+                      >
+                        <div>
+                          <div className="text-3xl font-bold">
+                            {product.title}
+                          </div>
+                          <div>{product.category}</div>
+                        </div>
+                        {/* <img
+                      src={product.image}
+                      alt=""
+                      className="max-h-[50vh] w-full h-full object-center object-contain pt-5"
+                    /> */}
+                        {/* <div className="flex items-center h-[25rem] justify-center pt-5"> */}
+                        <img
+                          src={product.image}
+                          alt=""
+                          className="max-h-[50vh] w-full object-center object-contain py-5"
+                        />
+                        {/* </div> */}
+                      </Link>
+                      <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
+                        <div className="flex flex-wrap">
+                          {product?.title
+                            ?.toLowerCase()
+                            ?.includes("lehenga") && (
+                            <div className="text-2xl font-bold text-red-600 line-through mr-2">
+                              ₹{Math.ceil(product.price * 3.1)}.00
+                            </div>
+                          )}
+                          <div className="text-2xl font-bold">
+                            ₹{product.price}.00
+                          </div>
+                        </div>
+                        <div
+                          onClick={() => {
+                            if (product) {
+                              if (Cart.length === 0) setCart([product]);
+                              else setCart([...Cart, product]);
+                              setToast(true);
+                            } else {
+                              alert("Error adding to cart");
+                            }
+                          }}
+                          className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
+                        >
+                          Add to cart
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+            ) : (
+              <div>
+                <div>No product found</div>
+              </div>
+            )}
           </div>
         </div>
       </div>
