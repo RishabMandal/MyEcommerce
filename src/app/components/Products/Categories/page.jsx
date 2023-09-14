@@ -189,11 +189,18 @@ const page = () => {
                       <div className="text-3xl font-bold">{product.title}</div>
                       <div>{product.category}</div>
                     </div>
-                    <img
+                    {/* <img
                       src={product.image}
                       alt=""
                       className="max-h-[50vh] w-full h-full object-center object-contain pt-5"
-                    />
+                    /> */}
+                    <div className="flex items-center h-[25rem] justify-center pt-5">
+                      <img
+                        src={product.image}
+                        alt=""
+                        className="max-h-[50vh] w-full object-center object-contain py-5"
+                      />
+                    </div>
                   </Link>
                   <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
                     <div className="flex flex-wrap">

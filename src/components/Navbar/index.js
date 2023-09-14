@@ -13,26 +13,16 @@ const Navbar = () => {
   const { isAuthUser, setIsAuthUser } = useContext(GlobalContext);
   const [isAdminView, setIsAdminView] = useState(false);
   // const [isAdminView, setIsAdminView] = useState(true);
-  // const isAdminView = false;
   const [Name, setName] = useState();
-  const user = {
-    role: "admin",
-  };
+  // const user = {
+  //   role: "admin",
+  // };
 
   axios.defaults.withCredentials = true;
   const { setEmail } = useContext(GlobalContext);
   async function handleSession() {
     try {
-      // const response = await axios.post("http://localhost:5000/signup", {
-      //   // name: Name,
-      //   // // Contact,
-      //   // email: Email,
-      //   name: "John",
-      //   email: "John@example.com",
-      //   admin: true,
-      //   // password: Password,
-      // });
-      const response = await axios.get("http://localhost:5000/test");
+      const response = await axios.get("https://my-ecommerce-api-2.vercel.app/test");
       console.log(response.data);
       const { username, email, isAdmin, loggedIn } = response.data;
       // console.log(username, email, isAdmin, loggedIn);

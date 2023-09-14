@@ -17,6 +17,7 @@ const page = () => {
   const name = useRef();
   const password = useRef();
 
+  // axios.defaults.withCredentials = true;
   function handleSubmit() {
     // setName(name.current.value);
     // setPassword(password.current.value);
@@ -55,10 +56,10 @@ const page = () => {
             admin: true,
           })
           .catch((error) => console.error(error));
-        window.location.reload();
+        const { username, email, isAdmin, loggedIn } = response.data;
+        console.log(username, email, isAdmin, loggedIn);
+        // window.location.reload();
       }
-      // const { username, email, isAdmin, loggedIn } = response.data;
-      //   console.log(username, email, isAdmin, loggedIn);
     } catch (error) {
       console.error("Registration error:", error);
       alert("Registration error:", error);

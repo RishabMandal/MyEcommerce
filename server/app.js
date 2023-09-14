@@ -48,6 +48,7 @@ app.use(
       // httpOnly: true,
       // path: "/",
       maxAge: 3600000, // Session duration in milliseconds (1 hour in this example)
+      sameSite: "none",
     },
     // username: "",
     // email: "",
@@ -66,15 +67,6 @@ app.use(
     credentials: true,
   })
 );
-
-// mongoose.set("strictQuery", true);
-// mongoose.connect("mongodb://localhost:27017", { useNewUrlParser: true });
-
-// var db = mongoose.connection;
-// db.on("error", console.error.bind(console, "connection error:"));
-// db.once("open", function () {
-//   console.log("We are connected bro");
-// });
 
 app.get("/test", (req, res) => {
   // console.log(req.session);
