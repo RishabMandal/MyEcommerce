@@ -80,7 +80,7 @@ const page = ({ params }) => {
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          class="w-4 h-4 text-indigo-500"
+                          class="w-4 h-4 text-red-600"
                           viewBox="0 0 24 24"
                         >
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -91,7 +91,7 @@ const page = ({ params }) => {
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          class="w-4 h-4 text-indigo-500"
+                          class="w-4 h-4 text-red-600"
                           viewBox="0 0 24 24"
                         >
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -102,7 +102,7 @@ const page = ({ params }) => {
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          class="w-4 h-4 text-indigo-500"
+                          class="w-4 h-4 text-red-600"
                           viewBox="0 0 24 24"
                         >
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -113,7 +113,7 @@ const page = ({ params }) => {
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          class="w-4 h-4 text-indigo-500"
+                          class="w-4 h-4 text-red-600"
                           viewBox="0 0 24 24"
                         >
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -124,13 +124,13 @@ const page = ({ params }) => {
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          class="w-4 h-4 text-indigo-500"
+                          class="w-4 h-4 text-red-600"
                           viewBox="0 0 24 24"
                         >
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         <span class="text-gray-600 ml-3">
-                          {product.rating.count} Reviews
+                          {product.rating.count} Ratings
                         </span>
                       </span>
                       <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
@@ -180,12 +180,12 @@ const page = ({ params }) => {
                         <span class="mr-3">Color</span>
                         <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
                         <button class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                        <button class="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                        <button class="border-2 border-gray-300 ml-1 bg-red-600 rounded-full w-6 h-6 focus:outline-none"></button>
                       </div>
                       <div class="flex ml-6 items-center">
                         <span class="mr-3">Size</span>
                         <div class="relative">
-                          <select class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
+                          <select class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-red-600 text-base pl-3 pr-10">
                             <option>SM</option>
                             <option>M</option>
                             <option>L</option>

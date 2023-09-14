@@ -13,7 +13,8 @@ export async function checkout({ lineItems }) {
     mode: "payment",
     lineItems,
     // successUrl: `${window.location.origin}?session_id={CHECKOUT_SESSION_ID}`,
-    successUrl: `${window.location.origin}/components/Products/Delivery`,
+    // successUrl: `${window.location.origin}/components/Products/Delivery`,
+    successUrl: `${window.location.origin}/components/Products/Payment/AddOrderToDB`,
     cancelUrl: window.location.origin,
   });
 }

@@ -22,7 +22,9 @@ const Navbar = () => {
   const { setEmail } = useContext(GlobalContext);
   async function handleSession() {
     try {
-      const response = await axios.get("https://my-ecommerce-api-2.vercel.app/test");
+      const response = await axios.get(
+        "https://my-ecommerce-api-2.vercel.app/test"
+      );
       console.log(response.data);
       const { username, email, isAdmin, loggedIn } = response.data;
       // console.log(username, email, isAdmin, loggedIn);
@@ -100,6 +102,12 @@ const Navbar = () => {
               className={`font-semibold mx-5 text-xl hover:scale-105 hover:text-red-600 duration-200`}
             >
               Sale
+            </Link>
+            <Link
+              href="/components/Products/Payment/AddOrderToDB"
+              className={`font-semibold text-red-500 mx-5 text-xl hover:scale-105 hover:text-red-600 duration-200`}
+            >
+              Payment check
             </Link>
             {/* <button
               onClick={() => setSearchBar(!searchBar)}
