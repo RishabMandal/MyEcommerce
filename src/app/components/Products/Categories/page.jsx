@@ -22,7 +22,7 @@ const page = () => {
     // alert("ok");
   }, [Categories, Sort]);
 
-  const { Cart, setCart } = useContext(GlobalContext);
+  const { Cart, setCart, email } = useContext(GlobalContext);
   const [toast, setToast] = useState(false);
 
   return (
@@ -228,9 +228,9 @@ const page = () => {
                                   operation: "post",
                                   operation2: "add",
                                 })
-                                .then((response) =>
-                                  alert("Product successfully added to cart")
-                                )
+                                // .then((response) =>
+                                //   alert("Product successfully added to cart")
+                                // )
                                 .catch((error) => alert(error));
                             }
                           } catch (error) {

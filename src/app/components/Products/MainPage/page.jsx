@@ -46,7 +46,7 @@ const page = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const { Cart, setCart } = useContext(GlobalContext);
+  const { Cart, setCart, email } = useContext(GlobalContext);
 
   const [toast, setToast] = useState(false);
 
@@ -184,22 +184,18 @@ const page = () => {
                         if (product) {
                           if (Cart.length === 0) setCart([product]);
                           else setCart([...Cart, product]);
-                          try {
-                            axios
-                              .post("/api/Cart", {
-                                email: email.trim(),
-                                date: "",
-                                id: product.id,
-                                operation: "post",
-                                operation2: "add",
-                              })
-                              .then((response) =>
-                                alert("Product successfully added to cart")
-                              )
-                              .catch((error) => alert(error));
-                          } catch (error) {
-                            console.log(error);
-                          }
+                          axios
+                            .post("/api/Cart", {
+                              email: email.trim(),
+                              date: "",
+                              id: product.id,
+                              operation: "post",
+                              operation2: "add",
+                            })
+                            // .then((response) =>
+                            //   alert("Product successfully added to cart")
+                            // )
+                            .catch((error) => alert(error));
                           setToast(true);
                         } else {
                           alert("Error adding to cart");

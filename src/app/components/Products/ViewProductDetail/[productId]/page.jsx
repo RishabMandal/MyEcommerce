@@ -37,7 +37,7 @@ const page = ({ params }) => {
             operation: "post",
             operation2: "add",
           })
-          .then((response) => alert("Product successfully added to cart"))
+          // .then((response) => alert("Product successfully added to cart"))
           .catch((error) => alert(error));
       }
     } catch (error) {
