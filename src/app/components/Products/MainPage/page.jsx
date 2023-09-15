@@ -99,8 +99,8 @@ const page = () => {
             </div>
             <div className="text-xl mb-3 mt-7 font-bold">From ₹159990.00*</div>
             <div className="text-base font-semibold text-gray-400">
-              Pre-order starting at 5:30 PM IST on 15 September <br /> Available  from
-              22 September
+              Pre-order starting at 5:30 PM IST on 15 September <br />{" "}
+              Available  from 22 September
             </div>
           </div>
           <img
@@ -161,11 +161,11 @@ const page = () => {
                       className="max-h-[50vh] w-full border-4 object-center object-contain py-5"
                     /> */}
                     {/* <div className="flex items-center h-[25rem] justify-center pt-5"> */}
-                      <img
-                        src={product.image}
-                        alt=""
-                        className="max-h-[50vh] w-full object-center object-contain py-5"
-                      />
+                    <img
+                      src={product.image}
+                      alt=""
+                      className="max-h-[50vh] w-full object-center object-contain py-5"
+                    />
                     {/* </div> */}
                   </Link>
                   <div className="flex flex-wrap items-center h-max justify-between gap-3">
@@ -184,6 +184,22 @@ const page = () => {
                         if (product) {
                           if (Cart.length === 0) setCart([product]);
                           else setCart([...Cart, product]);
+                          try {
+                            axios
+                              .post("/api/Cart", {
+                                email: email.trim(),
+                                date: "",
+                                id: product.id,
+                                operation: "post",
+                                operation2: "add",
+                              })
+                              .then((response) =>
+                                alert("Product successfully added to cart")
+                              )
+                              .catch((error) => alert(error));
+                          } catch (error) {
+                            console.log(error);
+                          }
                           setToast(true);
                         } else {
                           alert("Error adding to cart");

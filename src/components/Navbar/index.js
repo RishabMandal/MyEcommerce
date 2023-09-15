@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useContext, useEffect, useRef, useState } from "react";
-// import { adminNavOptions, navOptions } from "@/utils";
 import { GlobalContext } from "@/context";
 import Link from "next/link";
 import axios from "axios";
@@ -9,15 +8,11 @@ import AdminModal from "../AdminModal.jsx";
 import Cookies from "js-cookie";
 
 const Navbar = () => {
-  // const isAuthUser = false;
   // const [isAuthUser, setIsAuthUser] = useState(false);
   const { isAuthUser, setIsAuthUser } = useContext(GlobalContext);
   const [isAdminView, setIsAdminView] = useState(false);
   // const [isAdminView, setIsAdminView] = useState(true);
   const [Name, setName] = useState();
-  // const user = {
-  //   role: "admin",
-  // };
 
   axios.defaults.withCredentials = true;
   const { setEmail } = useContext(GlobalContext);
@@ -111,7 +106,8 @@ const Navbar = () => {
     <>
       <nav className="bg-[#121212] text-white sticky w-full z-20 top-0 left-0">
         <div className="flex flex-col lg:flex-row px-2 py-3 justify-between items-center">
-          <div className="text-2xl font-bold">PowerBilla Ecommerce</div>
+          {/* <div className="text-2xl font-bold">PowerBilla Ecommerce</div> */}
+          <div className="text-2xl font-bold">Rishab Ecommerce</div>
           {/* <div className="cursor-pointer" onClick={() => handleSession()}>
             Click to check session
           </div> */}

@@ -67,7 +67,9 @@ export async function POST(req) {
     //   completed: Boolean,
     // });
     let productschema = new mongoose.Schema({
+      email: String,
       id: Number,
+      date: String,
       title: String,
       price: Number,
       description: String,
@@ -87,12 +89,14 @@ export async function POST(req) {
       operation,
       email,
       id,
+      date,
       title,
       price,
       description,
       category,
       image,
       rating,
+      operation2,
     } = await req.json();
     // console.log(id, title, price, description, category, image, rating);
     if (operation == "get") {
@@ -110,26 +114,25 @@ export async function POST(req) {
       // console.log(data);
       return NextResponse.json(data);
     }
-    if (operation == "post") {
+    if (operation == "post" && operation2 == "add") {
       let myData = new usermodel({
+        email,
+        date,
         id,
-        title,
-        price,
-        description,
-        category,
-        image,
-        rating,
       });
-      // myData
-      //   .save()
-      //   .then(() => {
-      //     // console.log("done");
-      //   })
-      //   .catch(() => {
-      //     // console.log("not done");
-      //   });
       db.collection("cart")
         .insertOne(myData)
+        .then(() => {
+          return NextResponse.json({ message: "Success" });
+        })
+        .catch((error) => {
+          console.log("not done");
+          return NextResponse.json({ error: error });
+        });
+    }
+    if (operation === "post" && operation2 === "delete") {
+      db.collection("cart")
+        .findOneAndDelete({ id: id })
         .then(() => {
           return NextResponse.json({ message: "Success" });
         })

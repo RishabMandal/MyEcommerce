@@ -12,7 +12,7 @@ const page = () => {
   const [totalPriceDay, settotalPriceDay] = useState(0);
   useEffect(() => {
     Cart?.forEach((product) => {
-      settotalPriceDay((prev) => prev + product.price);
+      settotalPriceDay((prev) => prev + product?.price);
     });
   }, [Cart]);
 
@@ -20,6 +20,20 @@ const page = () => {
     const updatedItems = Cart.filter((item) => item.id !== id);
     settotalPriceDay(0);
     setCart(updatedItems);
+    try {
+      if (Cart && Cart.length > 0) {
+        axios
+          .post("/api/Cart", {
+            id: id,
+            operation: "post",
+            operation2: "delete",
+          })
+          .then((response) => alert("Product successfully deleted"))
+          .catch((error) => alert(error));
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div>
@@ -61,7 +75,9 @@ const page = () => {
                 })
               ) : (
                 <div className="flex flex-col justify-center">
-                  <div className="py-10 text-center text-base font-semibold text-gray-800">Your Cart is empty</div>
+                  <div className="py-10 text-center text-base font-semibold text-gray-800">
+                    Your Cart is empty
+                  </div>
                   <Link
                     href="/components/Products/MainPage"
                     className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-center text-white rounded-lg p-3"

@@ -14,13 +14,14 @@ const page = () => {
       field: "recipent",
       headerName: "Recipent",
       //   width: 150,
-      flex: 1,
+      flex: 0.8,
       //   editable: true,
     },
     {
       field: "product",
       headerName: "Product",
       flex: 1,
+
       //   width: 150,
       //   editable: true,
     },
@@ -108,9 +109,9 @@ const page = () => {
 
   return (
     <div>
-      <div className="bg-gray-100 p-5 min-h-[80vh]">
+      <div className="bg-gray-100 overflow-x-scroll  p-5 min-h-[80vh]">
         <div className="text-2xl font-bold py-10 text-center">Orders</div>
-        <div>
+        <div className="min-w-[1400px]">
           <DataGrid
             rows={rows}
             columns={columns}
@@ -123,10 +124,11 @@ const page = () => {
             }}
             sx={{
               display: "flex",
-            //   fontSize: "2rem",
+              //   fontSize: "2rem",
               backgroundColor: "white",
               borderRadius: "1.5rem",
               color: "black",
+              minWidth: 150,
             }}
             pageSizeOptions={[15]}
             checkboxSelection

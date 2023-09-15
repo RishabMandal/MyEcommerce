@@ -9,7 +9,7 @@ import "./carousel.css";
 import Link from "next/link";
 
 const page = ({ params }) => {
-  const { Cart, setCart } = useContext(GlobalContext);
+  const { Cart, setCart, email } = useContext(GlobalContext);
   const [product, setProduct] = useState();
   const [productID, setProductID] = useState(params.productId);
   const [Categories, setCategories] = useState("men's clothing");
@@ -27,6 +27,22 @@ const page = ({ params }) => {
   const addToCart = () => {
     if (Cart.length === 0) setCart([product]);
     else setCart([...Cart, product]);
+    try {
+      if (product) {
+        axios
+          .post("/api/Cart", {
+            email: email.trim(),
+            date: "",
+            id: product.id,
+            operation: "post",
+            operation2: "add",
+          })
+          .then((response) => alert("Product successfully added to cart"))
+          .catch((error) => alert(error));
+      }
+    } catch (error) {
+      console.log(error);
+    }
     setToast(true);
   };
 
