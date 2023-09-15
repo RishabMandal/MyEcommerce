@@ -73,8 +73,8 @@ const page = () => {
       <div className="bg-[#121212] text-white p-5">
         <div className="lg:flex flex-row my-28 justify-evenly">
           <div>
-            <div className="text-6xl font-bold">iPhone 15 Pro Max</div>
-            <div className="text-2xl text-gray-200 my-10">
+            <div className="text-4xl font-bold">iPhone 15 Pro Max</div>
+            <div className="text-lg text-gray-200 my-10">
               Supercharged by A17 Pro, taking its power and efficieny further
               than ever. Unleash the beast.
             </div>
@@ -83,7 +83,7 @@ const page = () => {
                 onClick={() =>
                   window.location.replace("https://www.apple.com/in/")
                 }
-                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-xl font-bold"
+                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-base font-bold"
               >
                 Read More
               </div>
@@ -92,13 +92,13 @@ const page = () => {
                 // onClick={() =>
                 //   window.location.replace("https://www.apple.com/in/")
                 // }
-                className="cursor-pointer rounded-xl p-4 text-xl font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
+                className="cursor-pointer rounded-xl p-4 text-base font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
               >
                 View Pricing
               </Link>
             </div>
-            <div className="text-3xl mb-5 mt-7 font-bold">From ₹159990.00*</div>
-            <div className="text-xl font-semibold text-gray-400">
+            <div className="text-xl mb-5 mt-7 font-bold">From ₹159990.00*</div>
+            <div className="text-base font-semibold text-gray-400">
               Pre-order starting at 5:30 PM IST on 15 SeptemberAvailable  from
               22 September
             </div>
@@ -131,7 +131,7 @@ const page = () => {
         </Alert>
       </Snackbar>
       <div className="p-5 pb-10 bg-gray-100 min-h-[80vh]">
-        <div className="text-5xl my-10 text-center font-semibold">
+        <div className="text-3xl my-10 text-center font-semibold">
           Available Products
         </div>
         <div className="flex flex-wrap gap-10 justify-center">
@@ -152,7 +152,7 @@ const page = () => {
                     className="cursor-pointer h-full"
                   >
                     <div>
-                      <div className="text-3xl font-bold">{product.title}</div>
+                      <div className="text-xl font-bold">{product.title}</div>
                       <div>{product.category}</div>
                     </div>
                     {/* <img
@@ -171,11 +171,11 @@ const page = () => {
                   <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
                     <div className="flex flex-wrap">
                       {product?.title?.toLowerCase()?.includes("lehenga") && (
-                        <div className="text-2xl font-bold text-red-600 line-through mr-2">
+                        <div className="text-lg font-bold text-red-600 line-through mr-2">
                           ₹{Math.ceil(product.price * 3.1)}.00
                         </div>
                       )}
-                      <div className="text-2xl font-bold">
+                      <div className="text-lg font-bold">
                         ₹{product.price}.00
                       </div>
                     </div>
@@ -189,7 +189,7 @@ const page = () => {
                           alert("Error adding to cart");
                         }
                       }}
-                      className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
+                      className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-base"
                     >
                       Add to cart
                     </div>

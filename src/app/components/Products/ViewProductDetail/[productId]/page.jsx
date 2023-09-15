@@ -1,7 +1,7 @@
 "use client";
 
 import { GlobalContext } from "@/context";
-import { Alert, Snackbar } from "@mui/material";
+import { Alert, CircularProgress, Snackbar } from "@mui/material";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import MultiImageCarousel from "@/components/MultiImageCarousel";
@@ -84,7 +84,7 @@ const page = ({ params }) => {
                     <h2 class="text-sm title-font text-gray-500 tracking-widest">
                       {product.category}
                     </h2>
-                    <div className="text-5xl font-bold mb-4">
+                    <div className="text-3xl font-bold mb-4">
                       {product.title}
                     </div>
                     <div class="flex mb-4">
@@ -197,7 +197,7 @@ const page = ({ params }) => {
                         </a>
                       </span>
                     </div>
-                    <p class="leading-relaxed my-8 font-semibold text-2xl">
+                    <p class="leading-relaxed my-8 font-semibold text-lg">
                       {product.description}
                     </p>
                     <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
@@ -233,12 +233,12 @@ const page = ({ params }) => {
                       </div>
                     </div>
                     <div className="flex flex-wrap items-center gap-5">
-                      <div className="text-3xl font-bold">
+                      <div className="text-xl font-bold">
                         ₹{product.price}.00
                       </div>
                       <div
                         onClick={addToCart}
-                        className="cursor-pointer flex flex-row text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 my-5 font-bold text-xl"
+                        className="cursor-pointer flex flex-row text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 my-5 font-bold text-base"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -275,38 +275,39 @@ const page = ({ params }) => {
             </section>
           ) : (
             <div className="min-h-[80vh] flex justify-center items-center">
-              <div className="text-4xl text-center font-bold">
-                Loading the product...
+              <div className="text-2xl text-center font-bold">
+                {/* Loading the product... */}
+                <CircularProgress color="error" size={80} />
               </div>
             </div>
           )}
         </div>
         <div className="container mx-auto pb-20 p-5">
-          <div className="text-4xl font-bold py-5">Reviews</div>
+          <div className="text-2xl font-bold py-5">Reviews</div>
           <div className="flex flex-col-reverse lg:flex-row gap-10">
             <div className="p-10 w-full bg-white border shadow-xl rounded-xl">
-              <div className="font-semibold text-3xl my-5">Add a review</div>
+              <div className="font-semibold text-xl my-5">Add a review</div>
               <input
                 type="text"
-                className="w-full p-3 text-2xl border-4 my-2 rounded-xl"
+                className="w-full p-3 text-lg border-4 my-2 rounded-xl"
                 placeholder="Title"
               />
               <input
                 type="text"
-                className="w-full p-3 text-2xl border-4 my-2 rounded-xl"
+                className="w-full p-3 text-lg border-4 my-2 rounded-xl"
                 placeholder="Was it good? Pros? Cons?"
               />
-              <button className="cursor-pointer my-5 border-2 bg-[#121212] text-white border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-xl font-bold">
+              <button className="cursor-pointer my-5 border-2 bg-[#121212] text-white border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-base font-bold">
                 Submit your response
               </button>
             </div>
             <div className="p-10 w-full bg-white border shadow-xl rounded-xl">
-              <div className="font-semibold text-3xl">No reviews yet</div>
+              <div className="font-semibold text-xl">No reviews yet</div>
             </div>
           </div>
         </div>
         <div className="container mx-auto pb-20 p-5">
-          <div className="text-4xl font-bold py-5">Frequently Viewed</div>
+          <div className="text-2xl font-bold py-5">Frequently Viewed</div>
           <div className="flex flex-wrap gap-10">
             {recommendedProducts && recommendedProducts.length > 0 ? (
               recommendedProducts
@@ -323,7 +324,7 @@ const page = ({ params }) => {
                         className="cursor-pointer h-full"
                       >
                         <div>
-                          <div className="text-3xl font-bold">
+                          <div className="text-xl font-bold">
                             {product.title}
                           </div>
                           <div>{product.category}</div>
@@ -346,11 +347,11 @@ const page = ({ params }) => {
                           {product?.title
                             ?.toLowerCase()
                             ?.includes("lehenga") && (
-                            <div className="text-2xl font-bold text-red-600 line-through mr-2">
+                            <div className="text-lg font-bold text-red-600 line-through mr-2">
                               ₹{Math.ceil(product.price * 3.1)}.00
                             </div>
                           )}
-                          <div className="text-2xl font-bold">
+                          <div className="text-lg font-bold">
                             ₹{product.price}.00
                           </div>
                         </div>
@@ -364,7 +365,7 @@ const page = ({ params }) => {
                               alert("Error adding to cart");
                             }
                           }}
-                          className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
+                          className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-base"
                         >
                           Add to cart
                         </div>
@@ -375,6 +376,7 @@ const page = ({ params }) => {
             ) : (
               <div>
                 <div>No product found</div>
+                <CircularProgress color="error" size={80} />
               </div>
             )}
           </div>

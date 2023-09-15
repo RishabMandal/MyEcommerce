@@ -31,14 +31,14 @@ const page = () => {
       <div className="bg-[#121212] text-white p-5">
         <div className="lg:flex flex-row my-28 items-center justify-evenly">
           <div>
-            <div className="text-6xl font-bold">Happy Ganesh Chaturthi !!</div>
-            <div className="text-2xl text-gray-200 my-10">
+            <div className="text-4xl font-bold">Happy Ganesh Chaturthi !!</div>
+            <div className="text-lg text-gray-200 my-10">
               Upto 70% off on selected Lehengas.
             </div>
             <div className="flex flex-row gap-5">
               <div
                 onClick={() => setCategories("women's clothing")}
-                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-xl font-bold"
+                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-base font-bold"
               >
                 Go to sale
               </div>
@@ -46,7 +46,7 @@ const page = () => {
                 onClick={() =>
                   window.location.replace("https://www.apple.com/in/")
                 }
-                className="cursor-pointer rounded-xl p-4 text-xl font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
+                className="cursor-pointer rounded-xl p-4 text-base font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
               >
                 Coming Soon
               </div> */}
@@ -80,7 +80,7 @@ const page = () => {
         </Alert>
       </Snackbar>
       <div className="p-5 pb-10 bg-gray-100 min-h-[70vh]">
-        <div className="text-5xl my-10 text-center font-semibold">
+        <div className="text-3xl my-10 text-center font-semibold">
           Categories
         </div>
         <div className="flex flex-wrap justify-center mb-10 gap-5">
@@ -90,7 +90,7 @@ const page = () => {
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
               {/* <img src="" alt="Category Image" /> */}
-              <div className="text-3xl font-bold">Men's Clothing</div>
+              <div className="text-xl font-bold">Men's Clothing</div>
             </div>
           </div>
           <div
@@ -99,7 +99,7 @@ const page = () => {
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
               {/* <img src="" alt="Category Image" /> */}
-              <div className="text-3xl font-bold">Women's Clothing</div>
+              <div className="text-xl font-bold">Women's Clothing</div>
             </div>
           </div>
           <div
@@ -108,7 +108,7 @@ const page = () => {
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
               {/* <img src="" alt="Category Image" /> */}
-              <div className="text-3xl font-bold">SmartPhones</div>
+              <div className="text-xl font-bold">SmartPhones</div>
             </div>
           </div>
           <div
@@ -117,7 +117,7 @@ const page = () => {
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
               {/* <img src="" alt="Category Image" /> */}
-              <div className="text-3xl font-bold">Jewellery</div>
+              <div className="text-xl font-bold">Jewellery</div>
             </div>
           </div>
           <div
@@ -126,7 +126,7 @@ const page = () => {
           >
             <div className="border shadow-xl p-5 bg-white rounded-xl">
               {/* <img src="" alt="Category Image" /> */}
-              <div className="text-3xl font-bold">Electronics</div>
+              <div className="text-xl font-bold">Electronics</div>
             </div>
           </div>
           <div
@@ -137,7 +137,7 @@ const page = () => {
               else setSort("none");
             }}
           >
-            <div className="text-2xl font-semibold">Sort</div>
+            <div className="text-lg font-semibold">Sort</div>
             {Sort === "Ascending" && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +186,7 @@ const page = () => {
                     className="cursor-pointer h-full"
                   >
                     <div>
-                      <div className="text-3xl font-bold">{product.title}</div>
+                      <div className="text-xl font-bold">{product.title}</div>
                       <div>{product.category}</div>
                     </div>
                     {/* <img
@@ -205,11 +205,11 @@ const page = () => {
                   <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
                     <div className="flex flex-wrap">
                       {product?.title?.toLowerCase()?.includes("lehenga") && (
-                        <div className="text-2xl font-bold text-red-600 line-through mr-2">
+                        <div className="text-lg font-bold text-red-600 line-through mr-2">
                           ₹{Math.ceil(product.price * 3.1)}.00
                         </div>
                       )}
-                      <div className="text-2xl font-bold">
+                      <div className="text-lg font-bold">
                         ₹{product.price}.00
                       </div>
                     </div>
@@ -223,7 +223,7 @@ const page = () => {
                           alert("Error adding to cart");
                         }
                       }}
-                      className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
+                      className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-base"
                     >
                       Add to cart
                     </div>

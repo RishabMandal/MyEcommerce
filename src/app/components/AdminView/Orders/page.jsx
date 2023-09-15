@@ -38,7 +38,7 @@ const page = () => {
       sortable: false,
       renderCell: (params) => {
         return (
-        <button className="bg-green-600 text-white rounded-lg font-semibold text-lg p-2">YES</button>
+        <button className="bg-green-600 text-white rounded-lg font-semibold text-sm p-2">YES</button>
         );
       },
     },
@@ -107,7 +107,7 @@ const page = () => {
   return (
     <div>
       <div className="bg-gray-100 p-5 min-h-[80vh]">
-        <div className="text-5xl py-10 text-center">Orders</div>
+        <div className="text-base py-10 text-center">Orders</div>
         <div>
           <DataGrid
             rows={rows}

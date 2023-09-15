@@ -57,7 +57,7 @@ const page = () => {
       {/* <div className="grid grid-cols-2 bg-gray-100"> */}
       <div className="flex flex-wrap bg-gray-100 min-h-[70vh]">
         <div className="p-5 md:w-[20vw] lg:w-[35vw]">
-          <div className="text-5xl my-10 font-bold">Available Products</div>
+          <div className="text-3xl my-10 font-bold">Available Products</div>
           <div className="flex flex-col gap-10">
             {products ? (
               products.map((product) => {
@@ -68,7 +68,7 @@ const page = () => {
                     className="border rounded-xl shadow-xl p-5 cursor-pointer bg-white"
                   >
                     <div>{product.id}</div>
-                    <div className="text-3xl font-bold">{product.title}</div>
+                    <div className="text-xl font-bold">{product.title}</div>
                     <div>{product.category}</div>
                     <img
                       src={product.image}
@@ -76,7 +76,7 @@ const page = () => {
                       className="max-h-[50vh] w-full object-contain"
                     />
                     <div className="flex flex-wrap items-center justify-between gap-5 mt-5">
-                      <div className="text-2xl font-bold">
+                      <div className="text-lg font-bold">
                         ₹{product.price}.00
                       </div>
                       <div
@@ -95,15 +95,15 @@ const page = () => {
           </div>
         </div>
         <div className="fixed top-0 right-0 w-[60vw] mt-32">
-          <div className="text-5xl my-10 font-bold">Add new product</div>
-          <div className="text-2xl my-10 font-semibold">
+          <div className="text-3xl my-10 font-bold">Add new product</div>
+          <div className="text-lg my-10 font-semibold">
             Enter product details
           </div>
           {/* <input
             type="number"
             placeholder="Enter ID"
             ref={id}
-            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+            className="border-4 rounded-lg p-3 m-3 text-base bg-white"
           /> */}
           <TextField
             id="outlined-basic"
@@ -112,7 +112,7 @@ const page = () => {
             label="Product ID"
             variant="outlined"
             // color="red"
-            className="border-4 rounded-lg m-3 text-xl bg-white"
+            className="border-4 rounded-lg m-3 text-base bg-white"
           />
           <TextField
             id="outlined-basic"
@@ -121,7 +121,7 @@ const page = () => {
             label="Product Title"
             variant="outlined"
             // color="red"
-            className="border-4 rounded-lg m-3 text-xl bg-white"
+            className="border-4 rounded-lg m-3 text-base bg-white"
           />
           <TextField
             id="outlined-basic"
@@ -130,7 +130,7 @@ const page = () => {
             label="Product Price"
             variant="outlined"
             // color="red"
-            className="border-4 rounded-lg m-3 text-xl bg-white"
+            className="border-4 rounded-lg m-3 text-base bg-white"
           />
           <TextField
             id="outlined-basic"
@@ -139,7 +139,7 @@ const page = () => {
             label="Product Description"
             variant="outlined"
             // color="red"
-            className="border-4 rounded-lg m-3 text-xl bg-white"
+            className="border-4 rounded-lg m-3 text-base bg-white"
           />
           <TextField
             id="outlined-basic"
@@ -148,7 +148,7 @@ const page = () => {
             label="Product Category"
             variant="outlined"
             // color="red"
-            className="border-4 rounded-lg m-3 text-xl bg-white"
+            className="border-4 rounded-lg m-3 text-base bg-white"
           />
           <TextField
             id="outlined-basic"
@@ -156,7 +156,7 @@ const page = () => {
             inputRef={imageUrl}
             label="Image URL"
             variant="outlined"
-            className="border-4 rounded-lg m-3 text-xl bg-white"
+            className="border-4 rounded-lg m-3 text-base bg-white"
           />
           <TextField
             id="outlined-basic"
@@ -164,7 +164,7 @@ const page = () => {
             inputRef={ratingRate}
             label="Rating Rate"
             variant="outlined"
-            className="border-4 rounded-lg m-3 text-xl bg-white"
+            className="border-4 rounded-lg m-3 text-base bg-white"
           />
           <TextField
             id="outlined-basic"
@@ -172,60 +172,60 @@ const page = () => {
             inputRef={ratingCount}
             label="Rating Count"
             variant="outlined"
-            className="border-4 rounded-lg m-3 mb-8 text-xl bg-white"
+            className="border-4 rounded-lg m-3 mb-8 text-base bg-white"
           />
           {/* <input
             type="text"
             placeholder="Enter Title"
             ref={title}
-            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+            className="border-4 rounded-lg p-3 m-3 text-base bg-white"
           />
           <input
             type="number"
             placeholder="Enter Price"
             ref={price}
-            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+            className="border-4 rounded-lg p-3 m-3 text-base bg-white"
           />
           <input
             type="text"
             placeholder="Enter Description"
             ref={description}
-            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+            className="border-4 rounded-lg p-3 m-3 text-base bg-white"
           />
           <input
             type="text"
             placeholder="Enter Category"
             ref={category}
-            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+            className="border-4 rounded-lg p-3 m-3 text-base bg-white"
           />
           <input
             type="text"
             placeholder="Enter Image URL"
             ref={imageUrl}
-            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+            className="border-4 rounded-lg p-3 m-3 text-base bg-white"
           />
           <input
             type="number"
             placeholder="Enter Rating Rate"
             ref={ratingRate}
-            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+            className="border-4 rounded-lg p-3 m-3 text-base bg-white"
           />
           <input
             type="number"
             placeholder="Enter Rating Count"
             ref={ratingCount}
-            className="border-4 rounded-lg p-3 m-3 text-xl bg-white"
+            className="border-4 rounded-lg p-3 m-3 text-base bg-white"
           /> */}
           <div>
             <div
               onClick={handleSubmit}
-              className="text-center inline-block font-bold text-2xl cursor-pointer bg-white border duration-200 hover:text-red-700 rounded-lg p-3 m-2"
+              className="text-center inline-block font-bold text-lg cursor-pointer bg-white border duration-200 hover:text-red-700 rounded-lg p-3 m-2"
             >
               Cancel
             </div>
             <div
               onClick={handleSubmit}
-              className="text-center inline-block font-bold text-2xl cursor-pointer bg-red-600 duration-200 hover:bg-red-700 text-white rounded-lg p-3 m-2"
+              className="text-center inline-block font-bold text-lg cursor-pointer bg-red-600 duration-200 hover:bg-red-700 text-white rounded-lg p-3 m-2"
             >
               Add this product
             </div>

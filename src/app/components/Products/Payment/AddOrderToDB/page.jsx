@@ -86,9 +86,9 @@ const page = () => {
   }
 
   return (
-    <div className="min-h-[90vh] flex flex-col justify-center items-center bg-gray-100 text-center text-xl">
-      <div className="text-4xl mb-2 font-bold">Processing...</div>
-      <div className="text-xl font-semibold text-red-600">
+    <div className="min-h-[90vh] flex flex-col justify-center items-center bg-gray-100 text-center text-base">
+      <div className="text-2xl mb-2 font-bold">Processing...</div>
+      <div className="text-base font-semibold text-red-600">
         Please do not close the browser!
       </div>
     </div>

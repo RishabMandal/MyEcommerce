@@ -95,38 +95,38 @@ const Navbar = () => {
     <>
       <nav className="bg-[#121212] text-white sticky w-full z-20 top-0 left-0">
         <div className="flex flex-col lg:flex-row px-4 py-5 justify-between items-center">
-          <div className="text-4xl font-bold">PowerBilla Ecommerce</div>
+          <div className="text-2xl font-bold">PowerBilla Ecommerce</div>
           {/* <div className="cursor-pointer" onClick={() => handleSession()}>
             Click to check session
           </div> */}
           <div className="flex flex-wrap items-center">
             <Link
               href="/components/Products/MainPage"
-              className={`font-semibold mx-5 text-xl hover:scale-105 hover:text-red-600 duration-200`}
+              className={`font-semibold mx-5 text-base hover:scale-105 hover:text-red-600 duration-200`}
             >
               Home
             </Link>
             <Link
               href="/components/Products/Categories"
-              className={`font-semibold mx-5 text-xl hover:scale-105 hover:text-red-600 duration-200`}
+              className={`font-semibold mx-5 text-base hover:scale-105 hover:text-red-600 duration-200`}
             >
               Categories
             </Link>
             <Link
               href="/components/Products/MainPage"
-              className={`font-semibold mx-5 text-xl hover:scale-105 hover:text-red-600 duration-200`}
+              className={`font-semibold mx-5 text-base hover:scale-105 hover:text-red-600 duration-200`}
             >
               Sale
             </Link>
             <Link
               href="/components/Products/Payment/AddOrderToDB"
-              className={`font-semibold text-red-500 mx-5 text-xl hover:scale-105 hover:text-red-600 duration-200`}
+              className={`font-semibold text-red-500 mx-5 text-base hover:scale-105 hover:text-red-600 duration-200`}
             >
               Payment check
             </Link>
             {/* <button
               onClick={() => setSearchBar(!searchBar)}
-              className={`font-semibold mx-5 text-xl hover:text-red-600 duration-200`}
+              className={`font-semibold mx-5 text-base hover:text-red-600 duration-200`}
             >
               Search
             </button> */}
@@ -147,7 +147,7 @@ const Navbar = () => {
             </svg>
           </div>
           <div className="flex items-center">
-            {/* <div className="text-xl font-semibold mr-2">
+            {/* <div className="text-base font-semibold mr-2">
               User: {Name || "Error"}
             </div> */}
             {isAuthUser && (
@@ -208,7 +208,7 @@ const Navbar = () => {
               <input
                 type="text"
                 onChange={(e) => handleSearch(e.target.value)}
-                className="text-black block outline-none w-[80vw] p-3 text-xl font-semibold rounded-xl"
+                className="text-black block outline-none w-[80vw] p-3 text-base font-semibold rounded-xl"
                 placeholder="Type to search"
               />
               <svg

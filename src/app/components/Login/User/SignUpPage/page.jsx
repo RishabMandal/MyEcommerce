@@ -71,31 +71,31 @@ const page = () => {
       <section class="bg-gray-100 body-font">
         <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
           <div className=" bg-white lg:w-[50rem] w-full p-10 rounded-2xl border shadow-xl">
-            <div className="text-5xl text-center font-bold py-10">Sign Up</div>
+            <div className="text-3xl text-center font-bold py-10">Sign Up</div>
             <div className="flex flex-col gap-6 mt-10">
               <input
                 type="text"
                 ref={name}
-                className="border-4 p-3 rounded-lg text-2xl"
+                className="border-4 p-3 rounded-lg text-lg"
                 placeholder="Enter Name"
               />
               <input
                 type="number"
                 ref={contact}
-                className="border-4 p-3 rounded-lg text-2xl"
+                className="border-4 p-3 rounded-lg text-lg"
                 placeholder="Enter Contact Number"
                 maxLength={10}
               />
               <input
                 type="email"
                 ref={email}
-                className="border-4 p-3 rounded-lg text-2xl"
+                className="border-4 p-3 rounded-lg text-lg"
                 placeholder="Enter Email Address"
               />
               <input
                 ref={password}
                 type="password"
-                className="border-4 p-3 rounded-lg text-2xl"
+                className="border-4 p-3 rounded-lg text-lg"
                 placeholder="Enter Password"
               />
             </div>
@@ -103,7 +103,7 @@ const page = () => {
               onClick={() => {
                 handleSubmit();
               }}
-              className="cursor-pointer text-3xl font-bold text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 mt-16"
+              className="cursor-pointer text-xl font-bold text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 mt-16"
             >
               Sign Up
             </div>

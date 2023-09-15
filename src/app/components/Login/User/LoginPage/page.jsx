@@ -89,12 +89,12 @@ const page = () => {
           <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
             {/* <div>{process.env.MONGO_URL}</div> */}
             <div className="bg-white lg:w-[50rem] w-full p-10 rounded-2xl border shadow-xl">
-              <div className="text-5xl text-center font-bold py-10">Log In</div>
+              <div className="text-3xl text-center font-bold py-10">Log In</div>
               <div className="flex flex-col gap-6 mt-10">
                 {/* <input
                   type="email"
                   ref={name}
-                  className="border-4 p-3 rounded-lg text-2xl"
+                  className="border-4 p-3 rounded-lg text-lg"
                   placeholder="Enter Email Address"
                 /> */}
                 <TextField
@@ -118,7 +118,7 @@ const page = () => {
                 {/* <input
                   ref={password}
                   type="password"
-                  className="border-4 p-3 rounded-lg text-2xl"
+                  className="border-4 p-3 rounded-lg text-lg"
                   placeholder="Enter Password"
                 /> */}
               </div>
@@ -126,11 +126,11 @@ const page = () => {
                 onClick={() => {
                   handleSubmit();
                 }}
-                className="cursor-pointer text-3xl font-bold text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 mt-16"
+                className="cursor-pointer text-xl font-bold text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 mt-16"
               >
                 Log In
               </div>
-              <div className="my-4 text-lg">
+              <div className="my-4 text-sm">
                 Not registered?
                 <Link
                   href="/components/Login/User/SignUpPage"
@@ -139,12 +139,12 @@ const page = () => {
                   Sign Up
                 </Link>
               </div>
-              <div className="border-t text-lg py-2 border-b text-center">
+              <div className="border-t text-sm py-2 border-b text-center">
                 Or login via social links
               </div>
               <div
                 onClick={googleLogin}
-                className="flex flex-row text-xl cursor-pointer w-fit mx-auto bg-red-600 hover:bg-red-700 duration-200 p-4 rounded-lg text-white mt-5"
+                className="flex flex-row text-base cursor-pointer w-fit mx-auto bg-red-600 hover:bg-red-700 duration-200 p-4 rounded-lg text-white mt-5"
               >
                 <div className="font-bold pr-2">G</div>
                 <div>Google</div>

@@ -32,28 +32,28 @@ export default function BasicModal({ open, setOpen }) {
             <Link
               href="/components/AdminView/Dashboard"
               onClick={() => setOpen(false)}
-              className="bg-red-600 text-3xl p-5 text-white font-bold rounded-xl"
+              className="bg-red-600 text-xl p-5 text-white font-bold rounded-xl"
             >
               Dashboard
             </Link>
             <Link
               href="/components/AdminView/AvailableProducts"
               onClick={() => setOpen(false)}
-              className="bg-red-600 text-3xl p-5 text-white font-bold rounded-xl"
+              className="bg-red-600 text-xl p-5 text-white font-bold rounded-xl"
             >
               Products
             </Link>
             <Link
               href="/components/AdminView/AvailableProducts"
               onClick={() => setOpen(false)}
-              className="bg-red-600 text-3xl p-5 text-white font-bold rounded-xl"
+              className="bg-red-600 text-xl p-5 text-white font-bold rounded-xl"
             >
               Categories
             </Link>
             <Link
               href="/components/AdminView/Orders"
               onClick={() => setOpen(false)}
-              className="bg-red-600 text-3xl p-5 text-white font-bold rounded-xl"
+              className="bg-red-600 text-xl p-5 text-white font-bold rounded-xl"
             >
               Orders
             </Link>

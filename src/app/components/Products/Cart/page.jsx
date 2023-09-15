@@ -24,12 +24,12 @@ const page = () => {
   return (
     <div>
       <div className="p-5 bg-gray-100 min-h-[70vh]">
-        <div className="text-5xl text-center mb-16 mt-8 font-bold">
+        <div className="text-3xl text-center mb-16 mt-8 font-bold">
           YOUR SHOPPING CART
         </div>
         <div className="flex flex-col-reverse lg:flex-row justify-evenly gap-10">
           <div className="border shadow-xl bg-white p-10 rounded-2xl w-full">
-            <div className="text-3xl text-center font-bold py-5">Cart items</div>
+            <div className="text-xl text-center font-bold py-5">Cart items</div>
             <div className="flex flex-wrap gap-5 justify-center">
               {Cart && Cart.length > 0 ? (
                 Cart.map((product) => {
@@ -38,7 +38,7 @@ const page = () => {
                       key={product?.id}
                       className="border flex flex-col justify-between rounded-xl shadow-xl p-5 cursor-pointer hover:scale-105 duration-200 bg-white lg:w-1/4 md:w-1/2 w-full"
                     >
-                      <div className="text-3xl font-bold">{product?.title}</div>
+                      <div className="text-xl font-bold">{product?.title}</div>
                       <div>{product?.category}</div>
                       <img
                         src={product?.image}
@@ -46,12 +46,12 @@ const page = () => {
                         className="max-h-[50vh] w-full object-contain mt-5"
                       />
                       <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
-                        <div className="text-2xl font-bold">
+                        <div className="text-lg font-bold">
                           ₹{product?.price}.00
                         </div>
                         <div
                           onClick={() => removeProduct(product?.id)}
-                          className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-xl"
+                          className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-base"
                         >
                           Remove
                         </div>
@@ -61,7 +61,7 @@ const page = () => {
                 })
               ) : (
                 <div className="flex flex-col justify-center">
-                  <div className="py-10 text-center text-xl font-semibold text-gray-800">Your Cart is empty</div>
+                  <div className="py-10 text-center text-base font-semibold text-gray-800">Your Cart is empty</div>
                   <Link
                     href="/components/Products/MainPage"
                     className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-center text-white rounded-lg p-3"
@@ -74,21 +74,21 @@ const page = () => {
           </div>
           {/* {Cart && Cart.length > 0 && ( */}
           <div className="bg-white p-10 shadow-xl border rounded-2xl">
-            <div className="text-3xl font-bold py-5">Order Details</div>
-            <div className="text-xl py-1">
+            <div className="text-xl font-bold py-5">Order Details</div>
+            <div className="text-base py-1">
               Order Total: ₹{totalPriceDay || 0}.00
             </div>
-            <div className="text-xl py-1">
+            <div className="text-base py-1">
               CGST: ₹{Math.ceil(totalPriceDay * 0.09) || 0}.00
             </div>
-            <div className="text-xl py-1">
+            <div className="text-base py-1">
               SGST: ₹{Math.ceil(totalPriceDay * 0.09) || 0}.00
             </div>
-            <div className="text-xl py-1">Other taxes: ₹0.00</div>
-            <div className="text-xl py-1">
+            <div className="text-base py-1">Other taxes: ₹0.00</div>
+            <div className="text-base py-1">
               Discount: -₹{Math.ceil(totalPriceDay * 0.18) || 0}.00
             </div>
-            <div className="text-2xl py-2 font-semibold">
+            <div className="text-lg py-2 font-semibold">
               Total Payable: ₹{totalPriceDay || 0}.00
             </div>
             {/* <Link
