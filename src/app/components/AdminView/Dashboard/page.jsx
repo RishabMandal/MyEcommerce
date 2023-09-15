@@ -26,7 +26,7 @@ const page = () => {
         <div className="text-xl">
           Hello, <a className="font-bold">Admin</a>
         </div>
-        <div className="flex flex-wrap gap-10">
+        <div className="flex flex-wrap gap-5">
           <div>
             <div className="text-xl font-semibold pt-10 pb-5">Orders</div>
             <div className="flex flex-row">

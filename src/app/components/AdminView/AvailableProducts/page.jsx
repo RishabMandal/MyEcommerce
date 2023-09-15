@@ -58,7 +58,7 @@ const page = () => {
       <div className="flex flex-wrap bg-gray-100 min-h-[70vh]">
         <div className="p-5 md:w-[20vw] lg:w-[35vw]">
           <div className="text-3xl my-10 font-bold">Available Products</div>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-5">
             {products ? (
               products.map((product) => {
                 return (

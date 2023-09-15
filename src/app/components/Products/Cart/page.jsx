@@ -27,7 +27,7 @@ const page = () => {
         <div className="text-3xl text-center mb-16 mt-8 font-bold">
           YOUR SHOPPING CART
         </div>
-        <div className="flex flex-col-reverse lg:flex-row justify-evenly gap-10">
+        <div className="flex flex-col-reverse lg:flex-row justify-evenly gap-5">
           <div className="border shadow-xl bg-white p-10 rounded-2xl w-full">
             <div className="text-xl text-center font-bold py-5">Cart items</div>
             <div className="flex flex-wrap gap-5 justify-center">

@@ -86,11 +86,11 @@ const page = () => {
     <div>
       <div>
         <section class="bg-gray-100 body-font">
-          <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+          <div class="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
             {/* <div>{process.env.MONGO_URL}</div> */}
-            <div className="bg-white lg:w-[50rem] w-full p-10 rounded-2xl border shadow-xl">
-              <div className="text-3xl text-center font-bold py-10">Log In</div>
-              <div className="flex flex-col gap-6 mt-10">
+            <div className="bg-white lg:w-[30rem] w-full p-5 rounded-2xl border shadow-xl">
+              <div className="text-3xl text-center font-bold py-5">Log In</div>
+              <div className="flex flex-col gap-3 mt-5">
                 {/* <input
                   type="email"
                   ref={name}
@@ -126,7 +126,7 @@ const page = () => {
                 onClick={() => {
                   handleSubmit();
                 }}
-                className="cursor-pointer text-xl font-bold text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 mt-16"
+                className="cursor-pointer text-xl font-bold text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-2 mt-8"
               >
                 Log In
               </div>
@@ -144,7 +144,7 @@ const page = () => {
               </div>
               <div
                 onClick={googleLogin}
-                className="flex flex-row text-base cursor-pointer w-fit mx-auto bg-red-600 hover:bg-red-700 duration-200 p-4 rounded-lg text-white mt-5"
+                className="flex flex-row text-base cursor-pointer w-fit mx-auto bg-red-600 hover:bg-red-700 duration-200 p-2 rounded-lg text-white mt-5"
               >
                 <div className="font-bold pr-2">G</div>
                 <div>Google</div>

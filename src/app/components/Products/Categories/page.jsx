@@ -29,10 +29,10 @@ const page = () => {
     <div>
       {/* // */}
       <div className="bg-[#121212] text-white p-5">
-        <div className="lg:flex flex-row my-28 items-center justify-evenly">
+        <div className="lg:flex flex-row my-14 items-center justify-evenly gap-5">
           <div>
             <div className="text-4xl font-bold">Happy Ganesh Chaturthi !!</div>
-            <div className="text-lg text-gray-200 my-10">
+            <div className="text-lg text-gray-200 my-5">
               Upto 70% off on selected Lehengas.
             </div>
             <div className="flex flex-row gap-5">
@@ -172,7 +172,7 @@ const page = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-wrap gap-10 justify-center">
+        <div className="flex flex-wrap gap-5 justify-center">
           {products && products.length > 0 ? (
             products.map((product) => {
               return (

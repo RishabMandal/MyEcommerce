@@ -284,7 +284,7 @@ const page = ({ params }) => {
         </div>
         <div className="container mx-auto pb-20 p-5">
           <div className="text-2xl font-bold py-5">Reviews</div>
-          <div className="flex flex-col-reverse lg:flex-row gap-10">
+          <div className="flex flex-col-reverse lg:flex-row gap-5">
             <div className="p-10 w-full bg-white border shadow-xl rounded-xl">
               <div className="font-semibold text-xl my-5">Add a review</div>
               <input
@@ -308,7 +308,7 @@ const page = ({ params }) => {
         </div>
         <div className="container mx-auto pb-20 p-5">
           <div className="text-2xl font-bold py-5">Frequently Viewed</div>
-          <div className="flex flex-wrap gap-10">
+          <div className="flex flex-wrap gap-5">
             {recommendedProducts && recommendedProducts.length > 0 ? (
               recommendedProducts
                 .filter((product) => product.id != params.productId)

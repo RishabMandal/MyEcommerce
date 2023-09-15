@@ -71,10 +71,10 @@ const page = () => {
   return (
     <div>
       <div className="bg-[#121212] text-white p-5">
-        <div className="lg:flex flex-row my-28 justify-evenly">
+        <div className="lg:flex flex-row my-14 justify-evenly items-center gap-5">
           <div>
             <div className="text-4xl font-bold">iPhone 15 Pro Max</div>
-            <div className="text-lg text-gray-200 my-10">
+            <div className="text-lg text-gray-200 my-5">
               Supercharged by A17 Pro, taking its power and efficieny further
               than ever. Unleash the beast.
             </div>
@@ -97,7 +97,7 @@ const page = () => {
                 View Pricing
               </Link>
             </div>
-            <div className="text-xl mb-5 mt-7 font-bold">From ₹159990.00*</div>
+            <div className="text-xl mb-3 mt-7 font-bold">From ₹159990.00*</div>
             <div className="text-base font-semibold text-gray-400">
               Pre-order starting at 5:30 PM IST on 15 September <br /> Available  from
               22 September
@@ -134,7 +134,7 @@ const page = () => {
         <div className="text-3xl my-10 text-center font-semibold">
           Available Products
         </div>
-        <div className="flex flex-wrap gap-10 justify-center">
+        <div className="flex flex-wrap gap-5 justify-center">
           {/* {products ? (
             products.length > 0 &&
             products?.map((product) => {

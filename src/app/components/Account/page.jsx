@@ -40,7 +40,7 @@ const page = () => {
   return (
     <div>
       <div className="bg-gray-100 p-5 min-h-[70vh]">
-        <div className="flex flex-row gap-10 justify-between">
+        <div className="flex flex-row gap-5 justify-between">
           <div className="bg-white rounded-xl flex-1 border shadow-xl p-10">
             <div className="text-xl font-bold mb-10">Orders</div>
             {orders ? (
