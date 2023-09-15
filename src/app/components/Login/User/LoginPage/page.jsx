@@ -42,7 +42,7 @@ const page = () => {
           }
         })
         .catch((error) => console.error(error));
-      // handleSession(name.current.value);
+      handleSession(name.current.value);
     }
   }
 
@@ -51,6 +51,7 @@ const page = () => {
       if (userEmail) {
         const response = await axios
           .post("https://my-ecommerce-api-2.vercel.app/signup", {
+            // .post("http://localhost:5001/signup", {
             name: "Rishab Mandal",
             email: userEmail,
             admin: true,
@@ -88,7 +89,7 @@ const page = () => {
         <section class="bg-gray-100 body-font">
           <div class="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
             {/* <div>{process.env.MONGO_URL}</div> */}
-            <div className="bg-white lg:w-[30rem] w-full p-5 rounded-2xl border shadow-xl">
+            <div className="bg-white md:w-[30rem] w-full p-5 rounded-2xl border shadow-xl">
               <div className="text-3xl text-center font-bold py-5">Log In</div>
               <div className="flex flex-col gap-3 mt-5">
                 {/* <input
