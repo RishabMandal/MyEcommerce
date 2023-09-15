@@ -38,7 +38,7 @@ const page = () => {
             <div className="flex flex-row gap-5">
               <div
                 onClick={() => setCategories("women's clothing")}
-                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-base font-bold"
+                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-3 text-base font-bold"
               >
                 Go to sale
               </div>
@@ -46,7 +46,7 @@ const page = () => {
                 onClick={() =>
                   window.location.replace("https://www.apple.com/in/")
                 }
-                className="cursor-pointer rounded-xl p-4 text-base font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
+                className="cursor-pointer rounded-xl p-3 text-base font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
               >
                 Coming Soon
               </div> */}

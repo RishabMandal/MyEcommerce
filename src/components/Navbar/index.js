@@ -94,7 +94,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-[#121212] text-white sticky w-full z-20 top-0 left-0">
-        <div className="flex flex-col lg:flex-row px-4 py-5 justify-between items-center">
+        <div className="flex flex-col lg:flex-row px-2 py-3 justify-between items-center">
           <div className="text-2xl font-bold">PowerBilla Ecommerce</div>
           {/* <div className="cursor-pointer" onClick={() => handleSession()}>
             Click to check session
@@ -153,14 +153,14 @@ const Navbar = () => {
             {isAuthUser && (
               <Link
                 href="/components/Account"
-                className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
+                className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-2 mx-2"
               >
                 {Name || "Account"}
               </Link>
             )}
             <Link
               href="/components/Products/Cart"
-              className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
+              className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-2 mx-2"
             >
               Cart ({Cart && Cart.length})
             </Link>
@@ -168,13 +168,13 @@ const Navbar = () => {
               <>
                 <button
                   onClick={() => setOpenModal(!openModal)}
-                  className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
+                  className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-2 mx-2"
                 >
                   Admin View
                 </button>
                 {/* <Link
                   href="/"
-                  className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
+                  className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-2 mx-2"
                 >
                   User View
                 </Link> */}
@@ -183,7 +183,7 @@ const Navbar = () => {
             {!isAuthUser ? (
               <Link
                 href="/components/Login/User/LoginPage"
-                className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
+                className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-2 mx-2"
               >
                 Login
               </Link>
@@ -193,7 +193,7 @@ const Navbar = () => {
                 onClick={() =>
                   window.confirm("Are you sure you want to Logout?")
                 }
-                className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-3 mx-2"
+                className="bg-red-600 hover:bg-red-700 duration-200 font-semibold text-white rounded-lg p-2 mx-2"
               >
                 Logout
               </button>
@@ -202,13 +202,13 @@ const Navbar = () => {
         </div>
         <AdminModal open={openModal} setOpen={setOpenModal} />
         {searchBar && (
-          <div className="p-3 pt-0 w-[80vw] mx-auto">
+          <div className="p-2 pt-0 w-[80vw] mx-auto">
             {/* <div>Search bar</div> */}
             <div className="flex flex-row items-center gap-5">
               <input
                 type="text"
                 onChange={(e) => handleSearch(e.target.value)}
-                className="text-black block outline-none w-[80vw] p-3 text-base font-semibold rounded-xl"
+                className="text-black block outline-none w-[80vw] p-2 text-base font-semibold rounded-xl"
                 placeholder="Type to search"
               />
               <svg

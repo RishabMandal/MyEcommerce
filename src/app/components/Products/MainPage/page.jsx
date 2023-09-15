@@ -83,7 +83,7 @@ const page = () => {
                 onClick={() =>
                   window.location.replace("https://www.apple.com/in/")
                 }
-                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-4 text-base font-bold"
+                className="cursor-pointer border-2 border-white hover:text-gray-300 duration-200 ease-in-out rounded-xl p-3 text-base font-bold"
               >
                 Read More
               </div>
@@ -92,14 +92,14 @@ const page = () => {
                 // onClick={() =>
                 //   window.location.replace("https://www.apple.com/in/")
                 // }
-                className="cursor-pointer rounded-xl p-4 text-base font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
+                className="cursor-pointer rounded-xl p-3 text-base font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
               >
                 View Pricing
               </Link>
             </div>
             <div className="text-xl mb-5 mt-7 font-bold">From ₹159990.00*</div>
             <div className="text-base font-semibold text-gray-400">
-              Pre-order starting at 5:30 PM IST on 15 SeptemberAvailable  from
+              Pre-order starting at 5:30 PM IST on 15 September <br /> Available  from
               22 September
             </div>
           </div>
