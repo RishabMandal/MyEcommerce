@@ -17,7 +17,7 @@ const page = () => {
   useEffect(() => {
     if (email) {
       axios
-        .post("/api/Account", { email: email })
+        .post("/api/Account", { email: email?.trim() })
         .then((response) => {
           //   console.log(response.data);
           if (response.data && response.data.length == 1) {
@@ -28,7 +28,7 @@ const page = () => {
         })
         .catch((error) => console.error(error));
       axios
-        .post("/api/Orders", { email: email })
+        .post("/api/Orders", { email: email?.trim() })
         .then((response) => {
           //   console.log(response.data);
           setOrders(response.data);

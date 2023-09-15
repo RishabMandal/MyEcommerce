@@ -87,15 +87,6 @@ const Navbar = () => {
   };
 
   // Check if cookies are enabled
-  // useEffect(() => {
-  //   if (document.cookie) {
-  //     alert("Cookie enabled");
-  //   } else {
-  //     alert(
-  //       "Cookies are not enabled, please allow cookies for this website to work."
-  //     );
-  //   }
-  // }, []);
   useEffect(() => {
     // Attempt to set a test cookie
     Cookies.set("thirdPartyCookieName", "testValue", { expires: 1 });
