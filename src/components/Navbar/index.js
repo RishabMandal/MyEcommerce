@@ -53,7 +53,7 @@ const Navbar = () => {
     try {
       if (email) {
         axios
-          .post("/api/Cart", { operation: "get", email: email })
+          .post("/api/Cart", { operation: "get", email: email.trim() })
           .then((res) => {
             // console.log(res.data);
             setCart(res.data);
