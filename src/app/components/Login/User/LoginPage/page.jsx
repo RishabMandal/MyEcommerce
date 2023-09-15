@@ -7,6 +7,7 @@ import Link from "next/link";
 import React, { useContext, useRef, useState } from "react";
 import { provider, auth } from "../../../../../../firebase";
 import { signInWithPopup } from "firebase/auth";
+import Cookies from "js-cookie";
 
 const page = () => {
   const { isAuthUser, setIsAuthUser } = useContext(GlobalContext);
@@ -38,7 +39,7 @@ const page = () => {
           // console.log(response.data);
           if (response.data && response.data.length == 1) {
             setIsAuthUser(true);
-            setEmail(name.current.value);
+            setEmail(name.current.value?.trim());
           }
         })
         .catch((error) => console.error(error));
@@ -57,8 +58,8 @@ const page = () => {
             admin: true,
           })
           .catch((error) => console.error(error));
-        const { username, email, isAdmin, loggedIn } = response.data;
-        console.log(username, email, isAdmin, loggedIn);
+        // const { username, email, isAdmin, loggedIn } = response.data;
+        // console.log(username, email, isAdmin, loggedIn);
         window.location.reload();
       }
     } catch (error) {

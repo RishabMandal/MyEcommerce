@@ -6,6 +6,7 @@ import { GlobalContext } from "@/context";
 import Link from "next/link";
 import axios from "axios";
 import AdminModal from "../AdminModal.jsx";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
   // const isAuthUser = false;
@@ -81,16 +82,39 @@ const Navbar = () => {
             );
           })
         );
-        // console.log(
-        //   res.data?.filter((product) => {
-        //     return (
-        //       product && product?.title?.toLowerCase()?.includes(inputValue)
-        //     );
-        //   })
-        // );
       })
       .catch((err) => console.log(err));
   };
+
+  // Check if cookies are enabled
+  // useEffect(() => {
+  //   if (document.cookie) {
+  //     alert("Cookie enabled");
+  //   } else {
+  //     alert(
+  //       "Cookies are not enabled, please allow cookies for this website to work."
+  //     );
+  //   }
+  // }, []);
+  useEffect(() => {
+    // Attempt to set a test cookie
+    Cookies.set("thirdPartyCookieName", "testValue", { expires: 1 });
+    // Attempt to read the test cookie
+    const testCookieValue = Cookies.get("thirdPartyCookieName", {
+      domain: "https://myecommerce-seven.vercel.app",
+    });
+    // Check if the test cookie was successfully set and read
+    if (!testCookieValue) {
+      alert(
+        "Cookies are not enabled, please allow cookies for this website to work."
+      ); // Cookies are disabled
+    }
+    // else {
+    //   alert("Cookie enabled");
+    // }
+    // Remove the test cookie
+    Cookies.remove("testCookie");
+  }, []);
 
   return (
     <>
