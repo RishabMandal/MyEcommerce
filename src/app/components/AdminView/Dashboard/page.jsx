@@ -35,7 +35,7 @@ const page = () => {
                 <div className="text-red-700 text-2xl font-bold my-2">
                   {totalOrdersDay}
                 </div>
-                <div className="text-gray-500 text-base">2 order(s) today</div>
+                <div className="text-gray-500 text-base">{totalOrdersDay} order(s) today</div>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@ const page = () => {
                 <div className="text-red-700 text-2xl font-bold my-2">
                   ₹ {totalPriceDay}
                 </div>
-                <div className="text-gray-500 text-base">2 order(s) today</div>
+                <div className="text-gray-500 text-base">{totalOrdersDay} order(s) today</div>
               </div>
             </div>
           </div>

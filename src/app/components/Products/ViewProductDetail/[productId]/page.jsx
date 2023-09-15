@@ -84,7 +84,7 @@ const page = ({ params }) => {
                     <h2 class="text-sm title-font text-gray-500 tracking-widest">
                       {product.category}
                     </h2>
-                    <div className="text-3xl font-bold mb-4">
+                    <div className="text-3xl font-bold mb-3">
                       {product.title}
                     </div>
                     <div class="flex mb-4">
@@ -308,7 +308,13 @@ const page = ({ params }) => {
         </div>
         <div className="container mx-auto pb-20 p-5">
           <div className="text-2xl font-bold py-5">Frequently Viewed</div>
-          <div className="flex flex-wrap gap-5">
+          <div
+            className={`flex flex-wrap gap-5 ${
+              recommendedProducts?.length <= 3
+                ? "justify-start"
+                : "justify-between"
+            }`}
+          >
             {recommendedProducts && recommendedProducts.length > 0 ? (
               recommendedProducts
                 .filter((product) => product.id != params.productId)
@@ -317,7 +323,7 @@ const page = ({ params }) => {
                     <div
                       // href={`/components/Products/ViewProductDetail/${product.id}`}
                       key={product.id}
-                      className="border flex flex-col mx-auto justify-between rounded-xl hover:scale-105 duration-200 shadow-xl p-5 cursor-pointer bg-white lg:w-[31%] md:w-1/2 w-full"
+                      className={`border flex flex-col mx-aut rounded-xl hover:scale-105 duration-200 shadow-xl p-5 cursor-pointer bg-white lg:w-[31%] md:w-1/2 w-full`}
                     >
                       <Link
                         href={`/components/Products/ViewProductDetail/${product.id}`}

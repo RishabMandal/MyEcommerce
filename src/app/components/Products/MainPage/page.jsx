@@ -168,7 +168,7 @@ const page = () => {
                       />
                     {/* </div> */}
                   </Link>
-                  <div className="flex flex-wrap items-center h-max justify-between gap-5 mt-5">
+                  <div className="flex flex-wrap items-center h-max justify-between gap-3">
                     <div className="flex flex-wrap">
                       {product?.title?.toLowerCase()?.includes("lehenga") && (
                         <div className="text-lg font-bold text-red-600 line-through mr-2">

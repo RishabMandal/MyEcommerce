@@ -27,7 +27,7 @@ const page = () => {
         .post(
           "/api/LoginPage",
           {
-            email: name.current.value,
+            email: name.current.value?.trim(),
             password: password.current.value,
           },
           {
@@ -59,7 +59,7 @@ const page = () => {
           .catch((error) => console.error(error));
         const { username, email, isAdmin, loggedIn } = response.data;
         console.log(username, email, isAdmin, loggedIn);
-        // window.location.reload();
+        window.location.reload();
       }
     } catch (error) {
       console.error("Registration error:", error);

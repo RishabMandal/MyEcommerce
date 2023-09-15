@@ -27,7 +27,7 @@ const page = () => {
     {
       field: "amount",
       headerName: "Amount",
-    //   type: "number",
+      //   type: "number",
       width: 110,
       flex: 0.5,
       //   editable: true,
@@ -38,7 +38,9 @@ const page = () => {
       sortable: false,
       renderCell: (params) => {
         return (
-        <button className="bg-green-600 text-white rounded-lg font-semibold text-sm p-2">YES</button>
+          <button className="bg-green-600 text-white rounded-lg font-semibold text-sm p-2">
+            YES
+          </button>
         );
       },
     },
@@ -94,7 +96,7 @@ const page = () => {
           id: id++,
           recipent: eachData.email,
           product: eachData.title,
-          amount: "₹"+eachData.price+".00",
+          amount: "₹" + eachData.price + ".00",
           paid: "Yes",
           date: eachData.date,
           //   id: admin.data().email,
@@ -107,7 +109,7 @@ const page = () => {
   return (
     <div>
       <div className="bg-gray-100 p-5 min-h-[80vh]">
-        <div className="text-base py-10 text-center">Orders</div>
+        <div className="text-2xl font-bold py-10 text-center">Orders</div>
         <div>
           <DataGrid
             rows={rows}
@@ -121,7 +123,7 @@ const page = () => {
             }}
             sx={{
               display: "flex",
-              fontSize: "2rem",
+            //   fontSize: "2rem",
               backgroundColor: "white",
               borderRadius: "1.5rem",
               color: "black",
