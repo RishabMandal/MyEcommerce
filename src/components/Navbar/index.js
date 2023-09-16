@@ -6,6 +6,7 @@ import Link from "next/link";
 import axios from "axios";
 import AdminModal from "../AdminModal.jsx";
 import Cookies from "js-cookie";
+import SideNavbar from "../SideNavbar.jsx";
 
 const Navbar = () => {
   // const [isAuthUser, setIsAuthUser] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
         .get("https://my-ecommerce-api-2.vercel.app/test")
         // .get("http://localhost:5001/test")
         .catch((error) => console.log(error));
-      console.log(response.data);
+      // console.log(response.data);
       const { username, email, isAdmin, loggedIn } = response.data;
       // console.log(username, email, isAdmin, loggedIn);
       // alert(username, email, isAdmin, loggedIn);
@@ -102,10 +103,13 @@ const Navbar = () => {
     Cookies.remove("testCookie");
   }, []);
 
+  //Side Navbar
+  const [openSideNavbar, setOpenSideNavbar] = useState(false);
+
   return (
     <>
       <nav className="bg-[#121212] text-white sticky w-full z-20 top-0 left-0">
-        <div className="flex flex-col lg:flex-row px-2 py-3 justify-between items-center">
+        <div className="md:flex flex-col hidden md:flex-row px-2 py-3 justify-between items-center">
           {/* <div className="text-2xl font-bold">PowerBilla Ecommerce</div> */}
           <div className="text-2xl font-bold">Rishab Ecommerce</div>
           {/* <div className="cursor-pointer" onClick={() => handleSession()}>
@@ -211,6 +215,40 @@ const Navbar = () => {
               </button>
             )}
           </div>
+        </div>
+        <div className="md:hidden">
+          <div className="flex flex-row justify-between px-2 py-3">
+            <button
+              className=""
+              onClick={() => setOpenSideNavbar(!openSideNavbar)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            </button>
+            <Link
+              href="/components/Products/Cart"
+              className="bg-red-600 hover:bg-red-700 duration-200 text-sm font-semibold text-white rounded-lg p-2 mx-2"
+            >
+              Cart ({Cart && Cart.length})
+            </Link>
+          </div>
+          <SideNavbar
+            open={openSideNavbar}
+            setOpen={setOpenSideNavbar}
+            name={Name}
+          />
         </div>
         <AdminModal open={openModal} setOpen={setOpenModal} />
         {searchBar && (
