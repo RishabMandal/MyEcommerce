@@ -85,11 +85,12 @@ export async function POST(req) {
     //db
     let db = mongoose.connection;
 
+    const date = new Date();
     const {
       operation,
       email,
       id,
-      date,
+      //   date,
       title,
       price,
       description,

@@ -35,7 +35,9 @@ const page = () => {
                 <div className="text-red-700 text-2xl font-bold my-2">
                   {totalOrdersDay}
                 </div>
-                <div className="text-gray-500 text-base">{totalOrdersDay} order(s) today</div>
+                <div className="text-gray-500 text-base">
+                  {totalOrdersDay} order(s) today
+                </div>
               </div>
             </div>
           </div>
@@ -47,7 +49,25 @@ const page = () => {
                 <div className="text-red-700 text-2xl font-bold my-2">
                   ₹ {totalPriceDay}
                 </div>
-                <div className="text-gray-500 text-base">{totalOrdersDay} order(s) today</div>
+                <div className="text-gray-500 text-base">
+                  {totalOrdersDay} order(s) today
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div className="text-xl font-semibold pt-10 pb-5">Most Ordered Products</div>
+            <div className="flex flex-row">
+              <div className="bg-white p-10 rounded-xl border shadow-xl text-center">
+                <div className="text-[#121212] text-lg font-bold">TODAY</div>
+                <div className="text-red-700 text-2xl font-bold my-2">
+                  ₹{totalPriceDay}.00
+                </div>
+                <div className="text-gray-500 text-base">
+                  {totalOrdersDay} order(s) today
+                </div>
               </div>
             </div>
           </div>

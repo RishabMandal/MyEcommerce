@@ -34,9 +34,10 @@ export async function POST(req) {
     //db
     let db = mongoose.connection;
 
+    const date = new Date();
     const {
       email,
-      date,
+      // date,
       id,
       title,
       price,
@@ -45,17 +46,17 @@ export async function POST(req) {
       image,
       rating,
     } = await req.json();
-    console.log(
-      email,
-      date,
-      id,
-      title,
-      price,
-      description,
-      category,
-      image,
-      rating
-    );
+    // console.log(
+    //   email,
+    //   date,
+    //   id,
+    //   title,
+    //   price,
+    //   description,
+    //   category,
+    //   image,
+    //   rating
+    // );
 
     let myData = new usermodel({
       email,

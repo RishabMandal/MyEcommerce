@@ -79,7 +79,7 @@ const page = () => {
       // );
       // Add condition here to check whether user is present in db
       setIsAuthUser(true);
-      setEmail(data.user.email);
+      setEmail(data.user.email?.trim());
       handleSession(data.user.email);
     });
   };

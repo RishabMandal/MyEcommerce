@@ -49,7 +49,7 @@ const page = () => {
       field: "date",
       headerName: "Date",
       //   type: "number",
-      width: 110,
+      width: 210,
       //   editable: true,
     },
   ];

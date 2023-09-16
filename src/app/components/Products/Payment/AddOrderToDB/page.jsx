@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 
 const page = () => {
   const router = useRouter();
+  const date = new Date();
+  console.log(date);
   const { Cart, email } = useContext(GlobalContext);
   useEffect(() => {
     try {
@@ -50,7 +52,7 @@ const page = () => {
             return axios
               .post("/api/AddOrderToDB", {
                 email: email,
-                date: "",
+                date: date,
                 id: product.id,
                 title: product.title,
                 price: product.price,

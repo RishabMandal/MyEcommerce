@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 
 const Footer = () => {
+  const date = new Date();
   return (
     <div>
       <footer class="text-gray-400 bg-[#121212] body-font">
@@ -106,7 +109,7 @@ const Footer = () => {
               <span class="ml-3 text-xl">PowerBilla Ecommerce</span>
             </a>
             <p class="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">
-              © 2023 PowerBilla Ecommerce —
+              © {date.getFullYear()} PowerBilla Ecommerce —
               <a
                 // href="https://twitter.com/knyttneve"
                 class="text-gray-500 ml-1"
