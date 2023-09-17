@@ -75,7 +75,7 @@ const page = () => {
           <div>
             <div className="text-4xl font-bold">iPhone 15 Pro Max</div>
             <div className="text-lg text-gray-200 my-5">
-              Supercharged by A17 Pro, taking its power and efficieny further
+              Supercharged by A17 Pro, taking its power and efficiency further
               than ever. Unleash the beast.
             </div>
             <div className="flex flex-row gap-5">
