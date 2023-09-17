@@ -56,7 +56,7 @@ const page = () => {
   return (
     <div>
       {/* <div className="grid grid-cols-2 bg-gray-100"> */}
-      <div className="flex flex-wrap bg-gray-100 min-h-[80vh]">
+      <div className="flex flex-col-reverse md:flex-wrap bg-gray-100 min-h-[80vh]">
         <div className="p-5 md:w-[20vw] lg:w-[35vw]">
           <div className="text-3xl my-5 font-bold">Available Products</div>
           <div className="flex flex-col gap-5">
@@ -109,7 +109,7 @@ const page = () => {
             )}
           </div>
         </div>
-        <div className="fixed top-0 right-0 w-[60vw] mt-20">
+        <div className="md:fixed md:top-0 md:right-0 md:w-[60vw] mt-8 px-5 md:px-0 md:mt-20">
           <div className="text-3xl my-5 font-bold">Add new product</div>
           <div className="text-lg my-5 font-semibold">
             Enter product details
