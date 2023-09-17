@@ -71,7 +71,7 @@ const page = () => {
   return (
     <div>
       <div className="bg-[#121212] text-white p-5">
-        <div className="lg:flex flex-row my-14 justify-evenly items-center gap-5">
+        <div className="lg:flex flex-row my-6 md:my-14 justify-evenly items-center gap-5">
           <div>
             <div className="text-4xl font-bold">iPhone 15 Pro Max</div>
             <div className="text-lg text-gray-200 my-5">

@@ -217,37 +217,60 @@ const Navbar = () => {
           </div>
         </div>
         <div className="md:hidden">
-          <div className="flex flex-row justify-between px-2 py-3">
-            <button
-              className=""
-              onClick={() => setOpenSideNavbar(!openSideNavbar)}
-            >
+          <div className="flex flex-row justify-between items-center px-2 py-3">
+            <div className="flex flex-row items-center">
+              <button
+                className="hover:scale-110 duration-200"
+                onClick={() => setOpenSideNavbar(!openSideNavbar)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </button>
+              <div className="font-bold text-xl ml-2">Ecommerce</div>
+            </div>
+            <div className="flex flex-row items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={2.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-6 h-6 inline-block mx-2 cursor-pointer hover:scale-110 duration-200"
+                onClick={() => setSearchBar(!searchBar)}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                 />
               </svg>
-            </button>
-            <Link
-              href="/components/Products/Cart"
-              className="bg-red-600 hover:bg-red-700 duration-200 text-sm font-semibold text-white rounded-lg p-2 mx-2"
-            >
-              Cart ({Cart && Cart.length})
-            </Link>
+              <Link
+                href="/components/Products/Cart"
+                className="bg-red-600 hover:bg-red-700 duration-200 text-sm font-semibold text-white rounded-lg p-2 mx-2"
+              >
+                Cart ({Cart && Cart.length})
+              </Link>
+            </div>
           </div>
           <SideNavbar
             open={openSideNavbar}
             setOpen={setOpenSideNavbar}
             name={Name}
+            isAdminView={isAdminView}
+            openAdminModal={openModal}
+            setOpenAdminModal={setOpenModal}
           />
         </div>
         <AdminModal open={openModal} setOpen={setOpenModal} />

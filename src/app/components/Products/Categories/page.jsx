@@ -29,10 +29,10 @@ const page = () => {
     <div>
       {/* // */}
       <div className="bg-[#121212] text-white p-5">
-        <div className="lg:flex flex-row my-14 items-center justify-evenly gap-5">
+        <div className="lg:flex flex-row mt-6 mb-14 md:my-14 items-center justify-evenly gap-5">
           <div>
             <div className="text-4xl font-bold">Happy Ganesh Chaturthi !!</div>
-            <div className="text-lg text-gray-200 my-5">
+            <div className="text-lg text-gray-200 my-3">
               Upto 70% off on selected Lehengas.
             </div>
             <div className="flex flex-row gap-5">
