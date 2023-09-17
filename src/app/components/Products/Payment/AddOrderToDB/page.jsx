@@ -8,15 +8,30 @@ import { useRouter } from "next/navigation";
 const page = () => {
   const router = useRouter();
   const date = new Date();
-  console.log(date);
+//   console.log(date);
   const { Cart, email } = useContext(GlobalContext);
+  // useEffect(() => {
+  //   try {
+  //     goForward();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
+  //   useEffect(() => {
+  //     try {
+  //       setTimeout(() => {
+  //         goForward();
+  //       }, 3500);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }, []);
   useEffect(() => {
-    try {
+    // Check if Cart data is available
+    if (Cart && Cart.length > 0) {
       goForward();
-    } catch (error) {
-      console.log(error);
     }
-  }, []);
+  }, [Cart]);
 
   async function goForward() {
     // Cart
@@ -51,7 +66,7 @@ const page = () => {
           if (email) {
             return axios
               .post("/api/AddOrderToDB", {
-                email: email,
+                email: email?.trim(),
                 date: date,
                 id: product.id,
                 title: product.title,

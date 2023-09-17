@@ -2,6 +2,8 @@ import Link from "next/link";
 import React from "react";
 
 const page = () => {
+  let date = new Date();
+  date.setDate(date.getDate() + 5);
   return (
     <div>
       <div className="p-5 min-h-[90vh] bg-gray-100 text-center">
@@ -26,7 +28,8 @@ const page = () => {
           Order Successfully Placed
         </div>
         <div className="mt-6 font-semibold">Estimated Delivery Date</div>
-        <div className="mb-6">sat oct 8 2024</div>
+        {/* <div className="mb-6">sat oct 8 2024</div> */}
+        <div className="mb-6">{date.toString().substring(0, 15)}</div>
         <div className="font-semibold">Payment Method</div>
         <div>Card</div>
         <Link

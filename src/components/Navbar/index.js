@@ -134,12 +134,12 @@ const Navbar = () => {
             >
               Sale
             </Link>
-            <Link
+            {/* <Link
               href="/components/Products/Payment/AddOrderToDB"
               className={`font-semibold text-red-500 mx-5 text-base hover:scale-105 hover:text-red-600 duration-200`}
             >
               Payment check
-            </Link>
+            </Link> */}
             {/* <button
               onClick={() => setSearchBar(!searchBar)}
               className={`font-semibold mx-5 text-base hover:text-red-600 duration-200`}

@@ -57,7 +57,7 @@ const page = () => {
           .post("https://my-ecommerce-api-2.vercel.app/signup", {
             // .post("http://localhost:5001/signup", {
             name: "Rishab Mandal",
-            email: userEmail,
+            email: userEmail?.trim(),
             admin: true,
           })
           .catch((error) => console.error(error));
