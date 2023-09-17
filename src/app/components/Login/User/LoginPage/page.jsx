@@ -40,11 +40,14 @@ const page = () => {
           if (response.data && response.data.length == 1) {
             setIsAuthUser(true);
             setEmail(name.current.value?.trim());
+            handleSession(name.current.value);
+          } else {
+            alert("No login credentials found");
           }
         })
         .catch((error) => console.error(error));
-      handleSession(name.current.value);
-    }
+      // handleSession(name.current.value);
+    } else alert("Please enter valid email address and password");
   }
 
   async function handleSession(userEmail) {
@@ -80,7 +83,7 @@ const page = () => {
       // Add condition here to check whether user is present in db
       setIsAuthUser(true);
       setEmail(data.user.email?.trim());
-      handleSession(data.user.email);
+      handleSession(data.user.email?.trim());
     });
   };
 

@@ -92,7 +92,7 @@ const page = ({ params }) => {
                   ) : (
                     <img
                       alt="ecommerce"
-                      class="lg:w-1/2 w-full lg:h-auto object-cover object-center rounded cursor-pointer hover:scale-125 duration-200 ease-in-out"
+                      class="lg:w-1/2 w-full max-h-[80vh] object-contain cursor-pointer hover:scale-125 duration-200 ease-in-out"
                       src={product?.image}
                     />
                   )}
@@ -223,30 +223,32 @@ const page = ({ params }) => {
                         <button class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
                         <button class="border-2 border-gray-300 ml-1 bg-red-600 rounded-full w-6 h-6 focus:outline-none"></button>
                       </div>
-                      <div class="flex ml-6 items-center">
-                        <span class="mr-3">Size</span>
-                        <div class="relative">
-                          <select class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-red-600 text-base pl-3 pr-10">
-                            <option>SM</option>
-                            <option>M</option>
-                            <option>L</option>
-                            <option>XL</option>
-                          </select>
-                          <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                            <svg
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              class="w-4 h-4"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M6 9l6 6 6-6"></path>
-                            </svg>
-                          </span>
+                      {product?.category?.includes("clothing") && (
+                        <div class="flex ml-6 items-center">
+                          <span class="mr-3">Size</span>
+                          <div class="relative">
+                            <select class="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-red-600 text-base pl-3 pr-10">
+                              <option>SM</option>
+                              <option>M</option>
+                              <option>L</option>
+                              <option>XL</option>
+                            </select>
+                            <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                              <svg
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                class="w-4 h-4"
+                                viewBox="0 0 24 24"
+                              >
+                                <path d="M6 9l6 6 6-6"></path>
+                              </svg>
+                            </span>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                     <div className="flex flex-wrap items-center gap-5">
                       <div className="text-xl font-bold">

@@ -109,8 +109,8 @@ const page = () => {
 
   return (
     <div>
-      <div className="bg-gray-100 overflow-x-scroll  p-5 min-h-[80vh]">
-        <div className="text-2xl font-bold py-10 text-center">Orders</div>
+      <div className="bg-gray-100 overflow-x-scroll p-5 min-h-[90vh]">
+        <div className="text-2xl font-bold py-7 text-center">Orders</div>
         <div className="min-w-[1400px]">
           <DataGrid
             rows={rows}

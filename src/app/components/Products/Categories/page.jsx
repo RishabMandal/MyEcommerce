@@ -5,6 +5,7 @@ import { Alert, Snackbar } from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const page = () => {
   const [products, setProducts] = useState();
@@ -30,7 +31,15 @@ const page = () => {
       {/* // */}
       <div className="bg-[#121212] text-white p-5">
         <div className="lg:flex flex-row mt-6 mb-14 md:my-14 items-center justify-evenly gap-5">
-          <div>
+          <motion.div
+            initial={{ x: "-100vw" }}
+            transition={{
+              duration: 0.7,
+              type: "spring",
+              bounce: 0.3,
+            }}
+            animate={{ x: 0, position: "" }}
+          >
             <div className="text-4xl font-bold">Happy Ganesh Chaturthi !!</div>
             <div className="text-lg text-gray-200 my-3">
               Upto 70% off on selected Lehengas.
@@ -51,8 +60,16 @@ const page = () => {
                 Coming Soon
               </div> */}
             </div>
-          </div>
-          <img
+          </motion.div>
+          <motion.img
+            initial={{ x: "100vw" }}
+            transition={{
+              duration: 0.7,
+              type: "spring",
+              bounce: 0.3,
+              delay: 0.3,
+            }}
+            animate={{ x: 0, position: "" }}
             src="https://medias.utsavfashion.com/media/catalog/product/cache/1/image/500x/040ec09b1e35df139433887a97daa66f/e/m/embroidered-net-lehenga-in-sea-green-v1-lyc2512.jpg"
             alt="Product Image"
             // className="object-contain cursor-pointer h-[30vh] w-fit rounded-xl"
