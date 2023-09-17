@@ -51,14 +51,6 @@ const page = () => {
               >
                 Go to sale
               </div>
-              {/* <div
-                onClick={() =>
-                  window.location.replace("https://www.apple.com/in/")
-                }
-                className="cursor-pointer rounded-xl p-3 text-base font-bold bg-white hover:bg-gray-300 duration-200 ease-in-out text-black"
-              >
-                Coming Soon
-              </div> */}
             </div>
           </motion.div>
           <motion.img
