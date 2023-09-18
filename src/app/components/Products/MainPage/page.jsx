@@ -71,7 +71,7 @@ const page = () => {
   return (
     <div>
       <div className="bg-[#121212] text-white p-5">
-        <div className="lg:flex flex-row my-6 md:my-14 justify-evenly items-center gap-5">
+        <div className="lg:flex flex-row my-6 md:my-10 justify-evenly items-center gap-5">
           <div>
             <div className="text-4xl font-bold">iPhone 15 Pro Max</div>
             <div className="text-lg text-gray-200 my-5">
@@ -108,7 +108,7 @@ const page = () => {
             src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch_GEO_EMEA?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1693009283815"
             alt="Product Image"
             // className="object-contain cursor-pointer h-[30vh] w-fit rounded-xl"
-            className="object-cover object-center cursor-pointer h-[35vh] w-[45vh] mx-auto lg:mx-0 lg:-mt-10 rounded-xl"
+            className="object-cover object-center cursor-pointer h-[35vh] w-[45vh] mx-auto lg:mx-0 rounded-xl"
             onClick={() => window.location.replace("https://www.apple.com/in/")}
           />
         </div>
@@ -131,7 +131,7 @@ const page = () => {
         </Alert>
       </Snackbar>
       <div className="p-5 pb-10 bg-gray-100 min-h-[80vh]">
-        <div className="text-3xl my-10 text-center font-semibold">
+        <div className="text-3xl my-5 text-center font-semibold">
           Available Products
         </div>
         <div className="flex flex-wrap gap-5 justify-center">

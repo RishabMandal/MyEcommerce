@@ -89,10 +89,10 @@ const page = () => {
         </Alert>
       </Snackbar>
       <div className="p-5 pb-10 bg-gray-100 min-h-[70vh]">
-        <div className="text-3xl my-10 text-center font-semibold">
+        <div className="text-3xl my-5 text-center font-semibold">
           Categories
         </div>
-        <div className="flex flex-wrap justify-center mb-10 gap-5">
+        <div className="flex flex-wrap justify-center mb-5 gap-5">
           <div
             className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("men's clothing")}

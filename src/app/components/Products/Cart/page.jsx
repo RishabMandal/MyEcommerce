@@ -38,12 +38,20 @@ const page = () => {
   return (
     <div>
       <div className="p-5 bg-gray-100 min-h-[70vh]">
-        <div className="text-3xl text-center mb-16 mt-8 font-bold">
+        <div className="text-3xl text-center mb-10 mt-5 font-bold">
           YOUR SHOPPING CART
         </div>
         <div className="flex flex-col-reverse lg:flex-row justify-evenly gap-5">
-          <div className="border shadow-xl bg-white p-10 rounded-2xl w-full">
-            <div className="text-xl text-center font-bold py-5">Cart items</div>
+          <div className="border shadow-xl bg-white p-5 rounded-2xl w-full">
+            {Cart?.length <= 0 ? (
+              <div className="text-xl text-center font-bold py-5">
+                Cart items
+              </div>
+            ) : (
+              <div className="text-xl text-center font-bold py-5">
+                {Cart?.length} item(s) in cart
+              </div>
+            )}
             <div className="flex flex-wrap gap-5 justify-center">
               {Cart && Cart.length > 0 ? (
                 Cart.map((product) => {
@@ -65,7 +73,7 @@ const page = () => {
                         </div>
                         <div
                           onClick={() => removeProduct(product?.id)}
-                          className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 font-bold text-base"
+                          className="cursor-pointer text-center bg-red-600 hover:bg-red-700 duration-200 text-white rounded-lg p-3 py-2 font-bold text-base"
                         >
                           Remove
                         </div>
@@ -89,7 +97,7 @@ const page = () => {
             </div>
           </div>
           {/* {Cart && Cart.length > 0 && ( */}
-          <div className="bg-white p-10 shadow-xl border rounded-2xl">
+          <div className="bg-white p-5 px-10 shadow-xl border rounded-2xl">
             <div className="text-xl font-bold py-5">Order Details</div>
             <div className="text-base py-1">
               Order Total: ₹{totalPriceDay || 0}.00
@@ -130,11 +138,11 @@ const page = () => {
             >
               Proceed to Pay
             </button>
-            <div className="flex flex-row justify-center">
-              or
+            <div className="flex flex-row justify-center items-center">
+              <div>or</div>
               <Link
                 href="/components/Products/MainPage"
-                className="ml-1 text-red-600 hover:underline"
+                className="ml-1 block text-sm text-red-600 hover:underline"
               >
                 Continue Shopping
               </Link>
