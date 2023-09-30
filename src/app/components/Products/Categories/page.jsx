@@ -1,7 +1,7 @@
 "use client";
 
 import { GlobalContext } from "@/context";
-import { Alert, Snackbar } from "@mui/material";
+import { Alert, MenuItem, Select, Snackbar } from "@mui/material";
 import axios from "axios";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
@@ -26,6 +26,11 @@ const page = () => {
   const { Cart, setCart, email } = useContext(GlobalContext);
   const [toast, setToast] = useState(false);
 
+  const handleCategoryChange = (event) => {
+    // setCategory(event.target.value);
+    setCategories(event.target.value);
+  };
+
   return (
     <div>
       {/* // */}
@@ -40,7 +45,7 @@ const page = () => {
             }}
             animate={{ x: 0, position: "" }}
           >
-            <div className="text-4xl font-bold">Happy Ganesh Chaturthi !!</div>
+            <div className="text-4xl font-bold">Zero Hour Sale !!</div>
             <div className="text-lg text-gray-200 my-3">
               Upto 70% off on selected Lehengas.
             </div>
@@ -93,12 +98,24 @@ const page = () => {
           Categories
         </div>
         <div className="flex flex-wrap justify-center mb-5 gap-5">
-          <div
+          <Select
+            labelId="category-label"
+            id="category"
+            value={Categories}
+            onChange={handleCategoryChange}
+            label="Category"
+          >
+            <MenuItem value="men's clothing">Men's Clothing</MenuItem>
+            <MenuItem value="women's clothing">Women's Clothing</MenuItem>
+            <MenuItem value="smartphone">Smartphones</MenuItem>
+            <MenuItem value="jewelery">Jewellery</MenuItem>
+            <MenuItem value="electronics">Electronics</MenuItem>
+          </Select>
+          {/* <div
             className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("men's clothing")}
           >
-            <div className="border shadow-xl p-5 bg-white rounded-xl">
-              {/* <img src="" alt="Category Image" /> */}
+            <div className="border shadow-xl px-4 py-3 bg-white rounded-xl">
               <div className="text-xl font-bold">Men's Clothing</div>
             </div>
           </div>
@@ -106,8 +123,7 @@ const page = () => {
             className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("women's clothing")}
           >
-            <div className="border shadow-xl p-5 bg-white rounded-xl">
-              {/* <img src="" alt="Category Image" /> */}
+            <div className="border shadow-xl px-4 py-3 bg-white rounded-xl">
               <div className="text-xl font-bold">Women's Clothing</div>
             </div>
           </div>
@@ -115,8 +131,7 @@ const page = () => {
             className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("smartphone")}
           >
-            <div className="border shadow-xl p-5 bg-white rounded-xl">
-              {/* <img src="" alt="Category Image" /> */}
+            <div className="border shadow-xl px-4 py-3 bg-white rounded-xl">
               <div className="text-xl font-bold">SmartPhones</div>
             </div>
           </div>
@@ -124,8 +139,7 @@ const page = () => {
             className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("jewelery")}
           >
-            <div className="border shadow-xl p-5 bg-white rounded-xl">
-              {/* <img src="" alt="Category Image" /> */}
+            <div className="border shadow-xl px-4 py-3 bg-white rounded-xl">
               <div className="text-xl font-bold">Jewellery</div>
             </div>
           </div>
@@ -133,11 +147,10 @@ const page = () => {
             className="cursor-pointer hover:scale-105 duration-200"
             onClick={() => setCategories("electronics")}
           >
-            <div className="border shadow-xl p-5 bg-white rounded-xl">
-              {/* <img src="" alt="Category Image" /> */}
+            <div className="border shadow-xl px-4 py-3 bg-white rounded-xl">
               <div className="text-xl font-bold">Electronics</div>
             </div>
-          </div>
+          </div> */}
           <div
             className="cursor-pointer flex flex-row items-center border-l-4 pl-5"
             onClick={() => {

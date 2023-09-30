@@ -152,7 +152,7 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               strokeWidth={2.5}
               stroke="currentColor"
-              className="w-7 h-7 inline-block mx-5 cursor-pointer hover:scale-110 duration-200"
+              className="w-6 h-6 inline-block mx-5 cursor-pointer hover:scale-110 duration-200"
               onClick={() => setSearchBar(!searchBar)}
             >
               <path
