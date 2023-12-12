@@ -28,22 +28,32 @@ const page = () => {
   const ratingCount = useRef();
 
   const handleSubmit = () => {
-    axios
-      .post("/api/AvailableProducts", {
-        operation: "add",
-        id: id.current.value,
-        title: title.current.value,
-        price: price.current.value,
-        description: description.current.value,
-        category: category.current.value,
-        image: imageUrl.current.value,
-        rating: {
-          rate: ratingRate.current.value,
-          count: ratingCount.current.value,
-        },
-      })
-      .then(() => alert("Product successfully added"))
-      .catch((error) => alert(error));
+    console.log(id.current.value);
+    if (
+      id.current.value &&
+      title.current.value &&
+      description.current.value &&
+      category.current.value &&
+      price.current.value &&
+      imageUrl.current.value
+    ) {
+      axios
+        .post("/api/AvailableProducts", {
+          operation: "add",
+          id: id.current.value,
+          title: title.current.value,
+          price: price.current.value,
+          description: description.current.value,
+          category: category.current.value,
+          image: imageUrl.current.value,
+          rating: {
+            rate: ratingRate.current.value,
+            count: ratingCount.current.value,
+          },
+        })
+        .then(() => alert("Product successfully added"))
+        .catch((error) => alert(error));
+    } else alert("Invalid product details");
   };
 
   const handleDelete = (id) => {
