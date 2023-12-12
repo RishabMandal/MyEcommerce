@@ -97,10 +97,9 @@ const page = () => {
                 View Pricing
               </Link>
             </div>
-            <div className="text-xl mb-3 mt-7 font-bold">From ₹159990.00*</div>
+            <div className="text-xl mb-3 mt-7 font-bold">From ₹1,59,990.00*</div>
             <div className="text-base font-semibold text-gray-400">
-              Pre-order starting at 5:30 PM IST on 15 September <br />{" "}
-              Available  from 22 September
+              Available now for purchase
             </div>
           </div>
           <img
