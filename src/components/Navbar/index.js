@@ -111,7 +111,7 @@ const Navbar = () => {
       <nav className="bg-[#121212] text-white sticky w-full z-20 top-0 left-0">
         <div className="md:flex flex-col hidden md:flex-row px-2 py-3 justify-between items-center">
           {/* <div className="text-2xl font-bold">PowerBilla Ecommerce</div> */}
-          <div className="text-2xl font-bold">Rishab Ecommerce</div>
+          <div className="text-2xl font-bold">ShopKart</div>
           {/* <div className="cursor-pointer" onClick={() => handleSession()}>
             Click to check session
           </div> */}
@@ -238,7 +238,7 @@ const Navbar = () => {
                   />
                 </svg>
               </button>
-              <div className="font-bold text-xl ml-2">Ecommerce</div>
+              <div className="font-bold text-xl ml-2">ShopKart</div>
             </div>
             <div className="flex flex-row items-center">
               <svg
