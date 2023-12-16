@@ -9,6 +9,7 @@ export default function GlobalState({ children }) {
   const [isAuthUser, setIsAuthUser] = useState(false);
   const [email, setEmail] = useState();
   const [Cart, setCart] = useState([]);
+  const [Coupons, setCoupons] = useState(["MERRYCHRISTMAS", "HAPPYNEWYEAR"]);
   return (
     <GlobalContext.Provider
       value={{
@@ -16,6 +17,8 @@ export default function GlobalState({ children }) {
         setShowNavModal,
         Cart,
         setCart,
+        Coupons,
+        setCoupons,
         isAuthUser,
         setIsAuthUser,
         email,

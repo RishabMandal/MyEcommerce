@@ -2,9 +2,10 @@
 
 import { GlobalContext } from "@/context";
 import Link from "next/link";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { checkout } from "../Payment/stripe";
 import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
 
 const page = () => {
   const { Cart, setCart } = useContext(GlobalContext);
@@ -35,6 +36,26 @@ const page = () => {
       console.log(error);
     }
   }
+
+  // Coupon functionality
+  const couponVal = useRef();
+  const { Coupons, setCoupons } = useContext(GlobalContext);
+  const couponCodeFunction = () => {
+    if (Coupons?.includes(couponVal.current.value)) {
+      settotalPriceDay((50 * totalPriceDay) / 100);
+    } else alert("Coupon Code Invalid");
+  };
+  // print yay! you saved 50% on your order!
+
+  // const makePayment = async () => {
+  //   const stripe = await loadStripe(process.env.STRIPE_PUBLIC_KEY);
+  //   const body = {
+  //     products: Cart,
+  //   };
+  //   const headers = { "Content-Type": "application/json" };
+  //   const response = await fetch();
+  // };
+
   return (
     <div>
       <div className="p-5 bg-gray-100 min-h-[70vh]">
@@ -112,8 +133,29 @@ const page = () => {
             <div className="text-base py-1">
               Discount: -₹{Math.ceil(totalPriceDay * 0.18) || 0}.00
             </div>
+            <div className="text-base py-1">
+              Coupon discount: -₹{Math.ceil(totalPriceDay * 0.18) || 0}.00
+            </div>
             <div className="text-lg py-2 font-semibold">
               Total Payable: ₹{totalPriceDay || 0}.00
+            </div>
+            <div className="flex flex-row gap-1 mx-auto">
+              <input
+                type="text"
+                ref={couponVal}
+                className="text-sm border-2 border-red-600 rounded-lg p-2"
+                placeholder="Apply Coupon code"
+              />
+              <button
+                onClick={couponCodeFunction}
+                className={`block ${
+                  couponVal.current?.value?.length > 0
+                    ? "bg-red-600"
+                    : "bg-gray-400"
+                } hover:bg-red-700 text-sm duration-200 font-semibold text-white text-center rounded-lg px-2 mx-auto`}
+              >
+                Apply
+              </button>
             </div>
             {/* <Link
               href="/components/Products/MainPage"
@@ -139,10 +181,10 @@ const page = () => {
               Proceed to Pay
             </button>
             <div className="flex flex-row justify-center items-center">
-              <div>or</div>
+              <div className="text-sm">or</div>
               <Link
                 href="/components/Products/MainPage"
-                className="ml-1 block text-sm text-red-600 hover:underline"
+                className="ml-1 mt-[1px] block text-sm text-red-600 hover:underline"
               >
                 Continue Shopping
               </Link>

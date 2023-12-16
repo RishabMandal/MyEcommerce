@@ -55,6 +55,13 @@ export default function BasicModal({ open, setOpen }) {
           >
             Orders
           </Link>
+          <Link
+            href="/components/AdminView/AvailableCoupons"
+            onClick={() => setOpen(false)}
+            className="bg-red-600 text-lg hover:bg-red-700 hover:scale-105 duration-200 py-2 px-3 text-white font-bold rounded-xl"
+          >
+            Coupons
+          </Link>
         </div>
       </div>
     </Modal>
