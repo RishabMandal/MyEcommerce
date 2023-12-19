@@ -43,3 +43,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Chat bot css */
+.react-chatbot-kit-chat-container {
+  /* box-sizing: border-box; */
+  height: 80vh;
+}
+
+.react-chatbot-kit-chat-inner-container {
+  height: 75vh;
+}
+.react-chatbot-kit-chat-message-container {
+  height: 63vh;
+}
